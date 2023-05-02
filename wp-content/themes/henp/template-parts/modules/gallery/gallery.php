@@ -2,6 +2,7 @@
 $section_id = get_sub_field('section_id');
 $section_classes = get_sub_field('section_classes');
 $include_padding = get_sub_field('padding_between_sections');
+$content = get_sub_field('content');
 $gallery = get_sub_field('gallery'); // gallery
 $display_type = get_sub_field('display_type'); // List, Carousel
 $rand_id = substr(md5(microtime()), rand(0, 26), 3);
@@ -25,6 +26,9 @@ if ($padding_top && $padding_bottom) {
 $section_classes .= $display_type === 'List' ? ' gallery--list' : ' gallery--carousel';
 ?>
 <section <?= $id; ?> class="section-wrap gallery <?= $section_classes; ?>">
+    <div class="gallery__content container">
+        <?= $content ?>
+    </div>
     <div class="gallery__container container">
         <?php
         if ($display_type === 'List') :

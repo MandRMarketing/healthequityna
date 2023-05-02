@@ -15,25 +15,33 @@ if (have_rows('page_layouts')) :
         elseif (get_row_layout() == 'module_gallery') :
             get_template_part('template-parts/modules/gallery/gallery');
 
-        /* Pages Layout */
-        elseif (get_row_layout() == 'module_pages') :
-            get_template_part('template-parts/modules/pages/pages');
+        /* Cards Layout */
+        elseif (get_row_layout() == 'module_cards') :
+            get_template_part('template-parts/modules/cards/cards');
 
-        /* Table Layout */
-        elseif (get_row_layout() == 'module_table') :
-            get_template_part('template-parts/modules/tables/tables');
+        /* Events Feed Layout */
+        elseif (get_row_layout() == 'module_events_feed') :
+            get_template_part('template-parts/modules/events-feed/events-feed');
 
-        /* Tab Layout */
-        elseif (get_row_layout() == 'module_tabs') :
-            get_template_part('template-parts/modules/tabs/tabs');
+        /* Homepage Header Layout */
+        elseif (get_row_layout() == 'module_homepage_header') :
+            get_template_part('template-parts/modules/homepage-header/homepage-header');
 
-        /* Toggle Layout */
+        /* News Feed Layout */
+        elseif (get_row_layout() == 'module_news_feed') :
+            get_template_part('template-parts/modules/news-feed/news-feed');
+
+        /* Team Layout */
+        elseif (get_row_layout() == 'module_team') :
+            get_template_part('template-parts/modules/team/team');
+
+        /* Toggles Layout */
         elseif (get_row_layout() == 'module_toggles') :
             get_template_part('template-parts/modules/toggles/toggles');
 
-        /* Testimonials Layout */
-        elseif (get_row_layout() == 'module_testimonials') :
-            get_template_part('template-parts/modules/testimonials/testimonials');
+        /* Facebook Feed Layout */
+        elseif (get_row_layout() == 'module_facebook_feed') :
+            get_template_part('template-parts/modules/facebook-feed/facebook-feed');
 
         endif; // end if switching statement over layout types
     endwhile; // end while(layouts) loop
