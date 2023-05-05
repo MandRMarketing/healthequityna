@@ -84,7 +84,7 @@
     font-size: 48px;
     margin: 42px 0 32px;
     color: #fff;
-    /*background-color: $color-blue;*/
+    /*background-color: $color-lightorange;*/
     text-transform: none;
     border-radius: 3px;
     /*
@@ -114,7 +114,7 @@
  *	Calendar View
  */
 .tribe-events-calendar th {
-    /*background-color: $color-blue;*/
+    /*background-color: $color-lightorange;*/
     color: #fff;
 }
 .tribe-events-calendar td.tribe-events-present div[id*='tribe-events-daynum-'],
@@ -122,9 +122,9 @@
     td.tribe-events-present
     div[id*='tribe-events-daynum-']
     > a {
-    /*background-color: $color-blue;*/
+    /*background-color: $color-lightorange;*/
     color: #fff;
 }
 #tribe-events-content .tribe-events-tooltip h4 {
-    /*background-color: $color-blue;*/
+    /*background-color: $color-lightorange;*/
 }

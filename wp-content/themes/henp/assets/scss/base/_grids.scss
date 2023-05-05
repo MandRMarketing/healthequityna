@@ -13,6 +13,17 @@
     @media only screen and (min-width: $first-break) {
         width: 1200px;
     }
+
+    &::before {
+        content: '';
+        background: url(/wp-content/themes/henp/assets/images/henp.svg);
+        position: relative;
+        display: block;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 69px;
+        height: 72px;
+    }
 }
 
 .grid {
@@ -268,8 +279,6 @@ $column-margin: 3.5087719298246%;
 
 .clearfix::before,
 .clearfix::after,
-.container::before,
-.container::after,
 #main::before,
 #main::after,
 header::before,

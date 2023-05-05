@@ -1,8 +1,7 @@
 <?php
 $section_id = get_sub_field('section_id');
 $section_classes = get_sub_field('section_classes');
-$button_text = get_sub_field('button_text');
-$button_link = get_sub_field('button_link');
+$content = get_sub_field('content');
 
 // Can't just print an empty id and have id="", so build printout here instead
 $id = !empty($section_id) ? "id=\"{$section_id}\"" : '';
@@ -18,13 +17,11 @@ if ($padding_top && $padding_bottom) {
 } elseif ($padding_bottom) {
     $section_classes .= ' double-padding--bot';
 }
-
 ?>
-<section <?= $id; ?> class="section-wrap standard-callout  <?= $section_classes; ?>">
-    <div class="standard-callout__container container">
-        <div class="standard-callout__wrap">
-            <?= get_sub_field('content'); ?>
-            <a class="btn" href="<?= $button_link ?>"><?= $button_text ?></a>
-        </div>
+<section <?= $id; ?> class="section-wrap counties-map <?= $section_classes; ?>">
+    <div class="counties-map__content container">
+        <?= $content ?>
+    </div>
+    <div class="counties-map__container container">
     </div>
 </section>

@@ -1,0 +1,22 @@
+.homepage-header {
+    &__container {
+        position: relative;
+        width: 1592px;
+    }  
+    &__image {
+        width: 100%;
+        height: auto;
+        border-radius: 0 30% 0 0;
+        z-index: -1;
+    }
+
+    &__content {
+        position: absolute;
+        z-index: 1;
+        left: 50%;
+        top: 30%;
+        transform: translateX(-50%);
+        min-width: 606px;
+        color: $color-white;
+    }
+}

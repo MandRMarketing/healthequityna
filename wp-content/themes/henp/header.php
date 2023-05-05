@@ -7,12 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
     <?php
     /*
         Corrects the issue of blog article URLs not having a unique identifier in the slug, allows for each GA4 property to include an Audience for just blog traffic 
     */
-        if (get_post_type() == 'post') :
+    if (get_post_type() == 'post') :
     ?>
         <script>
             var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?post_type=blog_post';
@@ -21,8 +29,8 @@
             }, '', newurl);
         </script>
     <?php
-        endif; 
-        wp_head(); 
+    endif;
+    wp_head();
     ?>
 
     <script type="text/javascript">
@@ -46,7 +54,7 @@
 
     <div id="main">
         <header id="header" class="header">
-            <div class="header__container container mobile-hide">
+            <!-- <div class="header__container container mobile-hide desktop-hide">
                 <p class="header__logo site-title">
                     <a class="header__logo__link" href="<?php bloginfo('url'); ?>/">
                         <img class="header__logo__image" src="<?php bloginfo('template_url'); ?>/assets/images/logo.png" alt="<?php echo bloginfo('name'); ?> logo" />
@@ -65,7 +73,7 @@
                     ));
                     ?>
                 </nav>
-            </div>
+            </div> -->
 
             <?php get_template_part('template-parts/menus/mobile-nav'); ?>
         </header>

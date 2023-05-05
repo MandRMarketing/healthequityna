@@ -1,18 +1,26 @@
 /* Set your primary colors here */
-$color-background: #fff;
-$color-red: #990000;
-$color-blue: #0000ff;
-$color-offwhite: #fefefe;
+$color-white: #fff;
+$color-darkorange: #F76800;
+$color-lightorange: #FF8A36;
+$color-peach: #FFE2CE;
+$color-tan: #FFF6EF;
+$color-offwhite: #ECECEC;
+$color-lightgrey: #999999;
+$color-grey: #636363;
+$color-darkgrey: #3F3F41;
+$color-black: #222222;
+
+$color-background: $color-white;
 
 /* Make sure to set this*/
-$color-main: $color-blue;
+$color-main: $color-lightorange;
 
 /* typical text color */
-$color-text: #282828;
+$color-text: $color-darkgrey;
 
 /* color when ya highlight something with the mouse */
-$selectionColor: #333333;
+$selectionColor: $color-black;
 
 /* simple a and a:hover */
-$color-link: $color-red;
-$color-linkhover: black;
+$color-link: $color-darkorange;
+$color-linkhover: $color-darkorange;

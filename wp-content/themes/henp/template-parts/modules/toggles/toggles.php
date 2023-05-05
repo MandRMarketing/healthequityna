@@ -1,7 +1,7 @@
 <?php
 $section_id = get_sub_field('section_id');
 $section_classes = get_sub_field('section_classes');
-$content = get_sub_field('toggles'); // WYSIWYG
+$content = get_sub_field('content'); // WYSIWYG
 $toggles = get_sub_field('toggles'); // repeater
 
 // Can't just print an empty id and have id="", so build printout here instead

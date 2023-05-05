@@ -104,7 +104,7 @@ h2,
 h3,
 .h3 {
     font-size: 22px;
-    color: $color-blue;
+    color: $color-lightorange;
 
     @media (min-width: $mobile-med) {
         font-size: 25px;
@@ -168,7 +168,7 @@ blockquote {
     padding: 6px 0 24px;
     font-size: 20px;
     font-weight: bold;
-    color: $color-blue;
+    color: $color-lightorange;
     @media (min-width: $mobile-med) {
         padding: 8px 0 30px;
         font-size: 26px;

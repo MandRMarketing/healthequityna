@@ -2,6 +2,7 @@
 $section_id = get_sub_field('section_id');
 $section_classes = get_sub_field('section_classes');
 $content = get_sub_field('content');
+$leading_team_members = get_sub_field('leading_team_members');
 $team_members = get_sub_field('team_members');
 
 // Can't just print an empty id and have id="", so build printout here instead
@@ -21,35 +22,63 @@ if ($padding_top && $padding_bottom) {
 ?>
 <section <?= $id; ?> class="section-wrap team-module <?= $section_classes; ?>">
     <div class="team__container container">
-        <div class="team__inner">
+        <div class="team__leaders__inner">
             <?php
-            foreach ($team_members as $team_member) :
-                the_row();
-                $image = get_sub_field('photo');
-                $name = get_sub_field('name');
-                $title = get_sub_field('position');
-                $bio = get_sub_field('bio');
-
-                // make sure it's in array format
-                if (!is_array($image)) {
-                    $image = acf_get_attachment($image);
-                }
-
-                // resize if needed
-                if ((int)$image['width'] !== 400 || (int)$image['height'] !== 400) {
-                    $image['url'] = aq_resize($image['url'], 400, 400, true, true, true);
-                }
+            foreach ($leading_team_members as $post) :
+                setup_postdata($post);
+                $name = $post->post_title;
+                $id = $post->id;
+                $image = get_field('image', $id);
+                $credentials = get_field('credentials', $id);
+                $job_title = get_field('job_title', $id);
+                $email = get_field('email', $id);
             ?>
                 <div class="team__member" id="<?= sanitize_title($name); ?>">
                     <picture class="team__member__picture">
                         <img class="team__member__image" src="<?= $image['url']; ?>" alt="<?= $image['alt']; ?>">
                     </picture>
-                    <div class="team__member__heading">
-                        <h2 class="team__member__heading__name"><?= $name; ?></h2>
-                        <h3 class="team__member__heading__title"><?= $title; ?></h3>
+                    <div class="team__member__content">
+                        <h4><?= $name ?></h4>
+                        <h5><?= $credentials ?></h5>
+                        <br />
+                        <?= $job_title ?>
+                        <p>
+                            <a href="mailto:<?= $email ?>"><?= $email ?></a>
+                        </p>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            <?php endforeach;
+            wp_reset_postdata();
+            ?>
+        </div>
+        <div class="team__inner">
+            <?php
+            foreach ($team_members as $post) :
+                setup_postdata($post);
+                $name = $post->post_title;
+                $id = $post->id;
+                $image = get_field('image', $id);
+                $credentials = get_field('credentials', $id);
+                $job_title = get_field('job_title', $id);
+                $email = get_field('email', $id);
+            ?>
+                <div class="team__member" id="<?= sanitize_title($name); ?>">
+                    <picture class="team__member__picture">
+                        <img class="team__member__image" src="<?= $image['url']; ?>" alt="<?= $image['alt']; ?>">
+                    </picture>
+                    <div class="team__member__content">
+                        <h4><?= $name ?></h4>
+                        <h5><?= $credentials ?></h5>
+                        <br />
+                        <?= $job_title ?>
+                        <p>
+                            <a href="mailto:<?= $email ?>"><?= $email ?></a>
+                        </p>
+                    </div>
+                </div>
+            <?php endforeach;
+            wp_reset_postdata();
+            ?>
         </div>
     </div>
 </section>

@@ -43,6 +43,10 @@ if (have_rows('page_layouts')) :
         elseif (get_row_layout() == 'module_facebook_feed') :
             get_template_part('template-parts/modules/facebook-feed/facebook-feed');
 
+        /* Counties Map Layout */
+        elseif (get_row_layout() == 'module_counties_map') :
+            get_template_part('template-parts/modules/counties-map/counties-map');
+
         endif; // end if switching statement over layout types
     endwhile; // end while(layouts) loop
 endif; // end have(layouts) check

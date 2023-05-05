@@ -19,7 +19,7 @@ if ($padding_top && $padding_bottom) {
     $section_classes .= ' double-padding--bot';
 }
 ?>
-<section <?= $id; ?> class="facebook-posts news-feed <?= $section_classes; ?>">
+<section <?= $id; ?> class="facebook-posts <?= $section_classes; ?>">
     <div class="facebook-feed__content container">
         <?= $content ?>
     </div>

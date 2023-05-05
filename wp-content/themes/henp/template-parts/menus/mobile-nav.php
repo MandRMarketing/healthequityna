@@ -2,7 +2,7 @@
 $menu = 'primary-navigation';
 $primary_navigation = wp_get_nav_menu_items($menu);
 ?>
-<div class="mobile-nav desktop-hide">
+<div class="mobile-nav">
     <div id="mobile-header" class="mobile-nav__header mobile-header">
         <div class="mobile-header__inner">
             <p class="mobile-header__logo">
@@ -41,7 +41,8 @@ $primary_navigation = wp_get_nav_menu_items($menu);
 /**
  * Build out primary-menu 
  */
-function mobile_nav_build_primary($nav) {
+function mobile_nav_build_primary($nav)
+{
     if (empty($nav)) {
         return false;
     }
@@ -50,28 +51,28 @@ function mobile_nav_build_primary($nav) {
 
     // Now, begin building the HTML
     ob_start();
-    ?>
+?>
     <ul class="mobile-menu__navigation mobile-menu-primary" data-level="1">
         <?php
         foreach ($nav as $item) :
             // Skip if not a top level item
-            if($item->menu_item_parent !== '0') {
+            if ($item->menu_item_parent !== '0') {
                 continue;
             }
 
             $classes = mobile_nav_build_classes('mobile-menu-primary__item', $item);
-            ?>
+        ?>
             <li id="mobile-item-<?= $item->ID; ?>" class="<?= $classes; ?>">
-                <?php 
+                <?php
                 mobile_nav_build_parent_link($item);
-                
+
                 // Secondary menu level
                 if (count($item->submenu_items) > 0) :
                     mobile_nav_build_sub_menu($item, $item->submenu_items);
                 endif;
                 ?>
             </li>
-            <?php
+        <?php
         endforeach;
         ?>
     </ul>
@@ -87,12 +88,13 @@ function mobile_nav_build_primary($nav) {
  * @param Object $nav Reference to the navigation object
  * 
  */
-function mobile_nav_create_submenu_index_map($nav) {
+function mobile_nav_create_submenu_index_map($nav)
+{
     $map = [];
-    foreach($nav as $index => $item){
-        if($item->menu_item_parent){
-            if(!isset($map[$item->menu_item_parent])) {
-                $map[$item->menu_item_parent] = array_search( $item->menu_item_parent, array_column($nav, 'ID') );
+    foreach ($nav as $index => $item) {
+        if ($item->menu_item_parent) {
+            if (!isset($map[$item->menu_item_parent])) {
+                $map[$item->menu_item_parent] = array_search($item->menu_item_parent, array_column($nav, 'ID'));
             }
         }
     }
@@ -106,19 +108,20 @@ function mobile_nav_create_submenu_index_map($nav) {
  * @param Object $nav Reference to the navigation object
  * 
  */
-function mobile_nav_extend_nav_menu_items($nav) {
+function mobile_nav_extend_nav_menu_items($nav)
+{
 
     // Ref array that maps parent menu id to its index
     $map = mobile_nav_create_submenu_index_map($nav);
 
-    foreach($nav as $item) {
+    foreach ($nav as $item) {
         $isParent = $item->menu_item_parent;
 
         // Initialize a custom object property containing an array of objects
         $item->submenu_items = [];
-        if($item->menu_item_parent) {
+        if ($item->menu_item_parent) {
             $parent_menu_item = $nav[$map[$item->menu_item_parent]];
-    
+
             // If object has menu item parent, map menu item parent to nav index 
             // Push submenu items into new custom subemnu_item property
             array_push($parent_menu_item->submenu_items, $item);
@@ -126,7 +129,7 @@ function mobile_nav_extend_nav_menu_items($nav) {
 
         // Check menu item ID matches current page
         $item->current_page = false;
-        if(get_the_id() === (int)$item->object_id){
+        if (get_the_id() === (int)$item->object_id) {
             $item->current_page = true;
         }
     }
@@ -141,15 +144,16 @@ function mobile_nav_extend_nav_menu_items($nav) {
  * @param Object $item The menu item object
  * 
  */
-function mobile_nav_build_classes($initial_class, $item) {
+function mobile_nav_build_classes($initial_class, $item)
+{
     $hasSubMenu = $item->has_submenu;
     $isCurrentPage = $item->current_page;
 
     $class = $initial_class;
-    if($hasSubMenu) {
+    if ($hasSubMenu) {
         $class .= ' has-submenu';
     }
-    if($isCurrentPage) {
+    if ($isCurrentPage) {
         $class .= ' current-menu-item';
     }
 
@@ -164,7 +168,8 @@ function mobile_nav_build_classes($initial_class, $item) {
  * @param Boolean $hasSubMenuMenu Determines if this menu item has a sub menu
  * 
  */
-function mobile_nav_build_parent_link($item, $class = 'mobile-menu-primary') {
+function mobile_nav_build_parent_link($item, $class = 'mobile-menu-primary')
+{
     $id = $item->ID;
     $title = $item->title;
     $url = $item->url;
@@ -178,8 +183,8 @@ function mobile_nav_build_parent_link($item, $class = 'mobile-menu-primary') {
     $hasNoUrlAndSubMenu = $isEmpty && $hasSubMenuMenu;
     $hasNoUrlAndNoSubMenu = $isEmpty && !$hasSubMenuMenu;
 
-    if($hasUrlAndSubMenu) :
-        ?>
+    if ($hasUrlAndSubMenu) :
+    ?>
         <a class="<?= $class; ?>__item__link" href="<?= $url; ?>" <?= $isNewTab; ?>>
             <?= $title; ?>
         </a>
@@ -187,10 +192,10 @@ function mobile_nav_build_parent_link($item, $class = 'mobile-menu-primary') {
             <span class="<?= $class; ?>__toggle__icon ikes-chevron-circle-right no-touch" aria-expanded="false"></span>
             <span class="<?= $class; ?>__toggle__text sr-only no-touch">Open <?= $title; ?></span>
         </button>
-        <?php
+    <?php
     endif;
-    if($hasNoUrlAndSubMenu) :
-        ?>
+    if ($hasNoUrlAndSubMenu) :
+    ?>
         <button type="button" class="<?= $class; ?>__item__link button--clear" data-open="sub-menu-<?= $id; ?>" style="text-align: left;">
             <?= $title; ?>
 
@@ -199,14 +204,14 @@ function mobile_nav_build_parent_link($item, $class = 'mobile-menu-primary') {
                 <span class="<?= $class; ?>__toggle__text sr-only">Open <?= $title; ?></span>
             </span>
         </button>
-        <?php
+    <?php
     endif;
-    if($hasUrlAndNoSubMenu || $hasNoUrlAndNoSubMenu) :
-        ?>
-        <a class="<?= $class ;?>__item__link" href="<?= $url; ?>" <?= $isNewTab; ?>>
+    if ($hasUrlAndNoSubMenu || $hasNoUrlAndNoSubMenu) :
+    ?>
+        <a class="<?= $class; ?>__item__link" href="<?= $url; ?>" <?= $isNewTab; ?>>
             <?= $title; ?>
         </a>
-        <?php
+    <?php
     endif;
 }
 
@@ -217,7 +222,8 @@ function mobile_nav_build_parent_link($item, $class = 'mobile-menu-primary') {
  * @param Array $submenu Array of item objects from parent
  * 
  */
-function mobile_nav_build_sub_menu($parent_item, $submenu, $data_level = 2) {
+function mobile_nav_build_sub_menu($parent_item, $submenu, $data_level = 2)
+{
     $parent_id = $parent_item->ID;
     $parent_title = $parent_item->title;
     ?>
@@ -234,7 +240,7 @@ function mobile_nav_build_sub_menu($parent_item, $submenu, $data_level = 2) {
         <?php
         foreach ($submenu as $item) :
             $classes = mobile_nav_build_classes('mobile-sub-menu__item', $item);
-            ?>
+        ?>
             <li id="mobile-item-<?= $item->ID; ?>" class="<?= $classes; ?>">
                 <?php
                 mobile_nav_build_parent_link($item, 'mobile-sub-menu');

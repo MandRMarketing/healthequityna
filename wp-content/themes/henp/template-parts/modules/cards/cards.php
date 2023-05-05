@@ -25,6 +25,7 @@ if ($padding_top && $padding_bottom) {
         <?= $content ?>
     </div>
     <div class="cards__container container">
+        Cards
         <?php
         foreach ($cards as $card) :
             $title = $card['title']; // WYSIWYG

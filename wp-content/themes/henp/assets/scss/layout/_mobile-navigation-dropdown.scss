@@ -1,8 +1,8 @@
 /* Mobile Nav
 ---------------------------------------------------------------------------------------------------- */
-$menu-link-color: $color-blue;
+$menu-link-color: $color-lightorange;
 $menu-link-hover-color: #000;
-$menu-icon-color: $color-blue;
+$menu-icon-color: $color-lightorange;
 
 .mobile-nav {
     //position: fixed;
@@ -16,8 +16,7 @@ $menu-icon-color: $color-blue;
 
     .header--init &,
     .nav-active & {
-        background: rgb(255, 231, 185); 
-        background: linear-gradient(90deg, rgba(255, 231, 185, 1) 0%, rgba(129, 218, 255, 1) 100%); 
+        background: $color-background; 
     }
 
     /*.scrolling-down:not(.overlay-active):not(.nav-active) & */
@@ -41,11 +40,11 @@ $menu-icon-color: $color-blue;
         a {
             background-color: #fff;
             margin-top: $spacing-xs;
-            color: $color-red;
+            color: $color-darkorange;
 
             &:hover,
             &:focus {
-                background-color: $color-red;
+                background-color: $color-darkorange;
                 color: #fff;
             }
         }
@@ -148,7 +147,7 @@ $menu-icon-color: $color-blue;
 }
 
 .mobile-menu {
-    background-color: #fff;
+    background-color: $color-tan + e6; //+e6 = 90% opacity
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -270,7 +269,7 @@ $menu-icon-color: $color-blue;
 }
 
 .mobile-menu-secondary {
-    background-color: $color-blue;
+    background-color: $color-lightorange;
     position: absolute;
     top: -25px;
     left: -25px;

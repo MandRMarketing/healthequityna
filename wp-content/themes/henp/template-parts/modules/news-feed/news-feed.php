@@ -24,17 +24,31 @@ if ($padding_top && $padding_bottom) {
         <?= $content ?>
     </div>
     <div class="news-feed__container container">
-        <?php
-        foreach ($articles as $article) :
-
-            // $title = $article['toggle_title']; // text
-            // $content = $article['toggle_content']; // WYSIWYG
-        ?>
-            <div class="article">
-
+        <div class="news-feed__container__navigation">
+            <div>
+                forward and back
             </div>
-        <?php
-        endforeach;
-        ?>
+            <a class="btn" href="/blog/">View All Articles</a>
+        </div>
+        <div class="news-feed__container__articles">
+            <?php
+            foreach ($articles as $post) :
+                setup_postdata($post);
+                $title = $post->post_title;
+                $id = $post->id;
+                $image_url = get_the_post_thumbnail_url($id);
+                $date_created = $post->post_date;
+                $article_link = get_permalink($id);
+            ?>
+                <div class="news-feed__container__articles__article">
+                    <img src="<?= $image_url ?>" alt="<?= $title ?> article image" />
+                    <h4><?= $title ?></h4>
+                    <p><?= $date_created ?></p>
+                    <a href="<?= $article_link ?>">Read Article</a>
+                </div>
+            <?php endforeach;
+            wp_reset_postdata();
+            ?>
+        </div>
     </div>
 </section>
