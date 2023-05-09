@@ -1,6 +1,8 @@
 <?php
 $section_id = get_sub_field('section_id');
 $section_classes = get_sub_field('section_classes');
+$section_background_color = get_sub_field('section_background_color');
+$section_background_color = !empty($section_background_color) ? "style=\"background-color: {$section_background_color};\"" : '';
 $columns = get_sub_field('columns');
 $section_classes .= ' columns';
 
@@ -30,7 +32,7 @@ if ($apply_text_color && $section_text_color) {
 
 if ($columns) :
 ?>
-    <section <?= $id; ?> class="section-wrap <?= $section_classes; ?>" style="<?= $section_style; ?>">
+    <section <?= $section_background_color ?> <?= $id; ?> class="section-wrap <?= $section_classes; ?>" style="<?= $section_style; ?>">
         <div class="columns__container container">
             <div class="columns__content">
                 <?php
@@ -84,7 +86,6 @@ if ($columns) :
                 ?>
             </div>
         </div>
-        <span class="columns__background abs-cover bg-image" style="<?= get_section_style(); ?>"></span>
     </section>
 <?php
 endif;

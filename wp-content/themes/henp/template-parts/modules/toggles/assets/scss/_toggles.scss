@@ -1,71 +1,86 @@
 /* Toggles */
-$color-toggle: #2e2e2e;
-$color-text: #fff;
+$color-toggle: transparent;
+$color-text: $color-black;
 
-.toggle {
-    margin: 0 0 8px;
-    padding: 0 0 2px 0;
-    width: 100%;
-
-    &__trigger {
-        background: $color-toggle;
-        display: block;
-        position: relative;
+.toggles {
+    &__content {
+        margin-bottom: 50px;
+    }
+    .toggle {
+        margin: 0 0 8px;
+        padding: 0 0 2px 0;
         width: 100%;
-        height: auto;
-        border: none;
-        padding: 10px 60px 10px 24px;
+        border-top: solid 2px $color-darkorange;
 
-        color: $color-text;
-        text-decoration: none;
-        font-weight: bold;
-        text-transform: uppercase;
-
-        &:hover,
-        &:focus {
-            background: darken($color-toggle, 10%);
-            color: $color-text;
+        &:last-of-type {
+            border-bottom: solid 2px $color-darkorange;
         }
-
-        &-icon {
+        &__trigger {
+            background: $color-toggle;
             display: block;
-            background: transparent;
-            position: absolute;
-            top: 0;
-            left: initial;
-            right: 0;
-            width: 45px;
-            height: 100%;
+            position: relative;
+            width: 100%;
+            height: auto;
+            border: none;
+            padding: 10px 60px 10px 24px;
 
             color: $color-text;
-            font-size: 26px;
-            line-height: 52px;
-            text-align: center;
-            transition: color 0.3s ease-in-out;
-            pointer-events: none;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
 
-            &:before {
-                content: '+';
+            &:hover,
+            &:focus {
+                background: darken($color-toggle, 10%);
+                color: $color-text;
+            }
+
+            &-text {
+                display: none;
+            }
+
+            &-icon {
+                display: block;
+                background: $color-darkorange;
+                border-radius: 100%;
                 position: absolute;
                 top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
+                transform: translateY(-50%);
+                left: initial;
+                right: 0;
+                width: 40px;
+                height: 40px;
+
+                color: $color-text;
+                font-size: 26px;
+                line-height: 52px;
+                text-align: center;
+                transition: color 0.3s ease-in-out;
+                pointer-events: none;
+
+                &:before {
+                    content: '+';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
             }
         }
-    }
 
-    &__box {
-        overflow: hidden;
-        padding: 20px;
-    }
+        &__box {
+            overflow: hidden;
+            padding: 20px;
+        }
 
-    &--active {
-        background: darken($color-toggle, 10%);
+        &--active {
+            background: darken($color-toggle, 10%);
 
-        .toggle {
-            &__trigger-icon {
-                &:before {
-                    content: '-';
+            .toggle {
+                &__trigger-icon {
+                    &:before {
+                        content: '-';
+                    }
                 }
             }
         }

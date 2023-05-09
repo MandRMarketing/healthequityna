@@ -1,6 +1,8 @@
 <?php
 $section_id = get_sub_field('section_id');
 $section_classes = get_sub_field('section_classes');
+$section_background_color = get_sub_field('section_background_color');
+$section_background_color = !empty($section_background_color) ? "style=\"background-color: {$section_background_color};\"" : '';
 $content = get_sub_field('content'); // WYSIWYG
 $toggles = get_sub_field('toggles'); // repeater
 
@@ -19,7 +21,7 @@ if ($padding_top && $padding_bottom) {
     $section_classes .= ' double-padding--bot';
 }
 ?>
-<section <?= $id; ?> class="section-wrap toggles <?= $section_classes; ?>">
+<section <?= $section_background_color ?> <?= $id; ?> class="section-wrap toggles <?= $section_classes; ?>">
     <div class="toggles__content container">
         <?= $content ?>
     </div>

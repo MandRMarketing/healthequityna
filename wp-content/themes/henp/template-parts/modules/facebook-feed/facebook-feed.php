@@ -1,8 +1,11 @@
 <?php
 $section_id = get_sub_field('section_id');
 $section_classes = get_sub_field('section_classes');
+$section_background_color = get_sub_field('section_background_color');
+$section_background_color = !empty($section_background_color) ? "style=\"background-color: {$section_background_color};\"" : '';
 $content = get_sub_field('content');
 $facebook_posts = []; // Get the posts here somehow
+$facebook_link = get_sub_field('facebook_link');
 
 // Can't just print an empty id and have id="", so build printout here instead
 $id = !empty($section_id) ? "id=\"{$section_id}\"" : '';
@@ -19,22 +22,25 @@ if ($padding_top && $padding_bottom) {
     $section_classes .= ' double-padding--bot';
 }
 ?>
-<section <?= $id; ?> class="facebook-posts <?= $section_classes; ?>">
-    <div class="facebook-feed__content container">
-        <?= $content ?>
-    </div>
+<section <?= $section_background_color ?> <?= $id; ?> class="facebook-feed <?= $section_classes; ?>">
     <div class="facebook-feed__container container">
-        <?php
-        foreach ($facebook_posts as $facebook_post) :
+        <div class="facebook-feed__content">
+            <?= $content ?>
+        </div>
+        <div class="facebook-feed__posts">
+            <?php
+            foreach ($facebook_posts as $facebook_post) :
 
-            // $title = $article['toggle_title']; // text
-            // $content = $article['toggle_content']; // WYSIWYG
-        ?>
-            <div class="facebook_post">
+                // $title = $article['toggle_title']; // text
+                // $content = $article['toggle_content']; // WYSIWYG
+            ?>
+                <div class="facebook_post">
 
-            </div>
-        <?php
-        endforeach;
-        ?>
+                </div>
+            <?php
+            endforeach;
+            ?>
+        </div>
+        <a class="btn" href="<?= $facebook_link ?>" target="_blank" rel="norefferer">Follow Us On Facebook</a>
     </div>
 </section>

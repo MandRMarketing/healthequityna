@@ -2,7 +2,6 @@
 <footer id="footer" class="footer">
 	<div class="footer__primary">
 		<div class="footer__primary__container container">
-			<?php get_template_part('template-parts/social-links'); ?>
 			<?php get_template_part('template-parts/contact-info'); ?>
 		</div>
 	</div>

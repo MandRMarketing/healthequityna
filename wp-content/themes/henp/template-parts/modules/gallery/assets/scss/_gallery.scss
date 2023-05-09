@@ -1,4 +1,12 @@
 .gallery {
+    &__container {
+        margin: auto;
+        width: 100%;
+    }
+
+    .slick-slider {
+        margin-bottom: 132px;
+    }
 }
 
 .gallery-columns {
@@ -104,9 +112,23 @@
         position: relative;
         z-index: 5;
         transition: transform 350ms ease-in-out;
+        padding: 25px;
+        img {
+            border-radius: 30px;
+        }
     }
 
-    .slick-current + .slick-slide {
+    .slick-center {
         transform: scale(1.1);
+    }
+
+    .slick-slide:not(.slick-center)::before {
+        content: '';
+        background-color: $color-white;
+        opacity: 50%;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        transition: 0.5s ease;
     }
 }

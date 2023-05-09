@@ -1,0 +1,27 @@
+.facebook-feed {
+    background:linear-gradient(90deg,white 33%, $color-darkgrey 33%);
+    background:-webkit-linear-gradient(90deg,white 33%, $color-darkgrey 33%);
+    @media (max-width: $second-break-max) {
+        margin: 0 0;
+        padding: 0;
+        width: 100%;
+        max-width: unset;
+        &__container {
+            border-radius: unset !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            padding: 50px 10px !important;
+            box-shadow: unset !important;
+        }
+    }
+    &__container {
+        background-color: $color-tan;
+        box-shadow: 0rem 0.15rem 0.5rem 0 rgba(0,0,0,.29);
+        border-radius: 60px;
+        padding: 75px;
+        text-align: center;
+        .btn {
+            margin: auto;
+        }
+    }
+}

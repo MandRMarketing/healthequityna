@@ -2,6 +2,8 @@
 $section_id = get_sub_field('section_id');
 $section_classes = get_sub_field('section_classes');
 $include_padding = get_sub_field('padding_between_sections');
+$section_background_color = get_sub_field('section_background_color');
+$section_background_color = !empty($section_background_color) ? "style=\"background-color: {$section_background_color};\"" : '';
 $content = get_sub_field('content');
 $gallery = get_sub_field('gallery'); // gallery
 $display_type = get_sub_field('display_type'); // List, Carousel
@@ -25,7 +27,7 @@ if ($padding_top && $padding_bottom) {
 // Determine display type
 $section_classes .= $display_type === 'List' ? ' gallery--list' : ' gallery--carousel';
 ?>
-<section <?= $id; ?> class="section-wrap gallery <?= $section_classes; ?>">
+<section <?= $section_background_color ?> <?= $id; ?> class="section-wrap gallery <?= $section_classes; ?>">
     <div class="gallery__content container">
         <?= $content ?>
     </div>
@@ -64,12 +66,20 @@ $section_classes .= $display_type === 'List' ? ' gallery--list' : ' gallery--car
             <script>
                 jQuery(window).load(function() {
                     jQuery('#gallery-carousel-<?= $rand_id; ?>').slick({
-                        autoplay: true,
+                        autoplay: false,
                         rows: 0,
                         slide: '#gallery-carousel-<?= $rand_id; ?> .gallery__list-item',
                         slidesToShow: 3,
+                        centerMode: true,
+                        centerPadding: '0',
                         speed: 500,
                         autoplaySpeed: 4000,
+                        responsive: [{
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 1,
+                            }
+                        }, ]
                     });
                 });
             </script>

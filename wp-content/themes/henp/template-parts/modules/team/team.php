@@ -1,6 +1,8 @@
 <?php
 $section_id = get_sub_field('section_id');
 $section_classes = get_sub_field('section_classes');
+$section_background_color = get_sub_field('section_background_color');
+$section_background_color = !empty($section_background_color) ? "style=\"background-color: {$section_background_color};\"" : '';
 $content = get_sub_field('content');
 $leading_team_members = get_sub_field('leading_team_members');
 $team_members = get_sub_field('team_members');
@@ -20,9 +22,12 @@ if ($padding_top && $padding_bottom) {
     $section_classes .= ' double-padding--bot';
 }
 ?>
-<section <?= $id; ?> class="section-wrap team-module <?= $section_classes; ?>">
+<section <?= $section_background_color ?> <?= $id; ?> class="section-wrap team <?= $section_classes; ?>">
+    <div class="team__content container">
+        <?= $content ?>
+    </div>
     <div class="team__container container">
-        <div class="team__leaders__inner">
+        <div class="team__leaders">
             <?php
             foreach ($leading_team_members as $post) :
                 setup_postdata($post);
@@ -72,7 +77,10 @@ if ($padding_top && $padding_bottom) {
                         <br />
                         <?= $job_title ?>
                         <p>
-                            <a href="mailto:<?= $email ?>"><?= $email ?></a>
+                            <a href="mailto:<?= $email ?>">
+                                <img height="27" width="27" src="/wp-content/themes/henp/assets/images/email.svg" alt="Email icon">
+                                <?= $email ?>
+                            </a>
                         </p>
                     </div>
                 </div>

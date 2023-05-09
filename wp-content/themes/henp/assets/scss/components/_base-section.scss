@@ -7,11 +7,69 @@
         position: absolute;
         display: block;
         left: 50%;
-        top: -60px;
+        //top: -61px;
         transform: translateX(-50%);
         width: 1px;
-        height: 72px;
+        //height: 72px;
     }
+
+    &#stats {
+        &::before {
+            top: -61px;
+            height: 72px;
+        }
+    }
+
+    &#about {
+        &::before {
+            top: -201px;
+            height: 242px;
+            z-index: -1;
+        }
+    }
+
+    &#counties-we-serve {
+        &::before {
+            top: -61px;
+            height: 82px;
+        }
+    }
+
+    &#resources {
+        &::before {
+            top: -61px;
+            height: 72px;
+        }
+    }
+
+    &#henp-at-work {
+        &::before {
+            top: 0px;
+            height: 25px;
+        }
+    }
+
+    &#meet-the-team {
+        &::before {
+            top: 0px;
+            height: 25px;
+        }
+    }
+
+    &#articles {
+        &::before {
+            top: 0px;
+            height: 25px;
+        }
+    }
+
+    &#events {
+        &::before {
+            top: -36px;
+            height: 58px;
+        }
+    }
+
     // last item before footer has padding below
     &:last-child {
         padding-bottom: 64px;

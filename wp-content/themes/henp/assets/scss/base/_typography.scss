@@ -100,6 +100,14 @@ h2,
     @media (min-width: $mobile-break) {
         font-size: 40px;
     }
+
+    text-decoration: underline $color-peach 2px;
+    text-underline-offset: -4px; /* Move the underline 4 pixels above the text */
+    text-decoration-thickness: 22px; /* Set the thickness of the underline */
+    text-decoration-color: $color-peach; /* Set the color of the underline */
+    text-decoration-skip-ink: none;
+    
+    margin-bottom: 50px;
 }
 h3,
 .h3 {
@@ -133,7 +141,7 @@ h6,
 
 a {
     color: $color-link;
-    text-decoration: none;
+    text-decoration: underline;
 
     &:hover,
     &:focus {
@@ -142,6 +150,39 @@ a {
 
     img {
         vertical-align: bottom;
+    }
+}
+
+a.btn, button.btn {
+    display: inline-block;
+    background-color: $color-darkorange;
+    text-decoration: none;
+    color: $color-black;
+    padding: 15px 25px;
+    border-radius: 30px;
+    border: none;
+    transition: 0.5s ease;
+    &:hover  {
+        color: $color-white;
+    }
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+a.btn-arrow {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $color-black;
+    position: relative;
+    &::after {
+        content: '';
+        background: url(/wp-content/themes/henp/assets/images/btn-arrow.svg);
+        height: 20px;
+        width: 20px;
+        position: absolute;
+        right: -30px;
+        top: 3px;
     }
 }
 

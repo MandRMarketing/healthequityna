@@ -1,6 +1,8 @@
 <?php
 $section_id = get_sub_field('section_id');
 $section_classes = get_sub_field('section_classes');
+$section_background_color = get_sub_field('section_background_color');
+$section_background_color = !empty($section_background_color) ? "style=\"background-color: {$section_background_color};\"" : '';
 $button_text = get_sub_field('button_text');
 $button_link = get_sub_field('button_link');
 
@@ -20,7 +22,7 @@ if ($padding_top && $padding_bottom) {
 }
 
 ?>
-<section <?= $id; ?> class="section-wrap standard-callout  <?= $section_classes; ?>">
+<section <?= $section_background_color ?> <?= $id; ?> class="section-wrap standard-callout  <?= $section_classes; ?>">
     <div class="standard-callout__container container">
         <div class="standard-callout__wrap">
             <?= get_sub_field('content'); ?>

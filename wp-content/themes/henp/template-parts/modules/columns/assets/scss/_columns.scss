@@ -31,7 +31,26 @@
         }
     }
 
+    &__row {
+        overflow: hidden;
+
+        &.mobile-flex {
+            @media (max-width: $second-break-max) {
+                display: flex;
+                flex-direction: column;
+                .column {
+                    width: 100%;
+                    margin-left: 0;
+                    ul {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+
     &__background {
         z-index: -1;
     }
 }
+

@@ -1,9 +1,38 @@
 .standard-callout {
-    background-color: #eee;
-
+    color: $color-white;
+    @media (max-width: $second-break-max) {
+        margin: 0 0;
+        padding: 0;
+        width: 100%;
+        max-width: unset;
+        &__container {
+            border-radius: unset !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            padding: 50px 10px !important;
+        }
+    }
+    &__container {
+        background-color: $color-darkgrey;
+        border-radius: 60px;
+        padding: 50px 200px;
+        box-shadow: 0rem 0.15rem 0.5rem 0 rgba(0,0,0,.29);
+    }
     &__wrap {
-        padding: 14px 24px;
         text-align: center;
+
+        h2 {
+            text-decoration: underline $color-grey 2px;
+            text-underline-offset: -4px; /* Move the underline 4 pixels above the text */
+            text-decoration-thickness: 22px; /* Set the thickness of the underline */
+            text-decoration-color: $color-grey; /* Set the color of the underline */
+            text-decoration-skip-ink: none;
+            margin-bottom: 50px;
+        }
+
+        a {
+            margin-top: 50px;
+        }
 
         p {
             margin-bottom: 0;

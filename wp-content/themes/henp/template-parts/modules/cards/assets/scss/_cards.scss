@@ -1,0 +1,161 @@
+.cards {
+    // &::before {
+    //     content: unset !important;
+    // }
+    // &__content {
+    //     &::before {
+    //         content: unset !important;
+    //     }
+    // }
+    &__container {
+        &.Multiple-Circle {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            @media (max-width: $second-break-max) {
+                flex-direction: column;
+                align-items: center;
+                gap: 25px;
+            }
+            &::before {
+                content: unset;
+            }
+
+            .card {
+                background-color: $color-darkorange;
+                border-radius: 50%;
+                width: 245px;
+                height: 245px;
+                padding: 50px 25px;
+                text-align: center;
+                color: $color-darkgrey;
+                h1 {
+                    margin-top: -20px;
+                }
+            }
+            
+        }
+        &.Single {
+            @media (max-width: $second-break-max) {
+                margin: 0 0;
+                padding: 0;
+                width: 100%;
+                max-width: unset;
+                .card {
+                    border-radius: unset !important;
+                    flex-direction: column !important;
+                    align-items: flex-start !important;
+                    h4 {
+                        margin-right: 0 !important;
+                    }
+                }
+            }
+            .Horizontal {
+                @media (max-width: $second-break-max) {
+                    &.card {
+                        padding: 50px 10px !important;
+                        .card__content {
+                            padding-left: 25px !important;
+                        }
+                        >h4 {
+                            margin-bottom: 25px;
+                        }
+                    }
+                }
+                &.card {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    background-color: $color-darkorange;
+                    padding: 75px;
+                    border-radius: 60px;
+                    >h4 {
+                        margin-right: 75px;
+                        min-width: 121px;
+                        text-transform: uppercase;
+                        text-decoration: underline $color-lightorange 2px;
+                        text-underline-offset: -4px; /* Move the underline 4 pixels above the text */
+                        text-decoration-thickness: 16px; /* Set the thickness of the underline */
+                        text-decoration-color: $color-lightorange; /* Set the color of the underline */
+                        text-decoration-skip-ink: none;
+                    }
+                    .card__content {
+                        border-left: 2px solid $color-white;
+                        padding-left: 75px;
+                    }
+                }
+            }
+
+            .Vertical {
+                &.card {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center !important;
+                    background-color: $color-darkorange;
+                    padding: 75px;
+                    @media (max-width: $second-break-max) {
+                        padding: 50px 10px !important;
+                    }
+                    border-radius: 60px;
+                    >h4 {
+                        text-transform: uppercase;
+                        text-decoration: underline $color-lightorange 2px;
+                        text-underline-offset: -4px; /* Move the underline 4 pixels above the text */
+                        text-decoration-thickness: 16px; /* Set the thickness of the underline */
+                        text-decoration-color: $color-lightorange; /* Set the color of the underline */
+                        text-decoration-skip-ink: none;
+                    }
+                    .card__content {
+                        width: 100%;
+                        form {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-around;
+                            gap: 30px;
+                            @media (max-width: $second-break-max) {
+                                flex-direction: column;
+                                gap: 0 !important;
+                            }
+                            .gform-body {
+                                width: 80%;
+                            }
+                            .ginput_container {
+                                input, textarea {
+                                    height: 59px;
+                                    background-color: $color-offwhite;
+                                    border-radius: 15px;
+                                }
+                            }
+                            .gform_footer.top_label {
+                                padding-bottom: 0;
+                                margin-top: 20px;
+                            }
+                            button {
+                                display: inline-block;
+                                background-color: $color-white;
+                                color: $color-black;
+                                padding: 15px 25px;
+                                border-radius: 30px;
+                                border: none;
+                                transition: 0.5s ease;
+                                margin: auto;
+                                &:hover  {
+                                    color: $color-lightorange;
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+        &.Multiple {
+            display: flex;
+        } 
+    }
+
+    .card {
+        box-shadow: 0rem 0.15rem 0.5rem 0 rgba(0,0,0,.29);
+    }
+}

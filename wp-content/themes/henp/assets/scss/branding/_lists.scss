@@ -30,12 +30,12 @@ ul:not([class]) {
 
         &:before {
             content: '';
-            background-color: #000;
+            background-color: $color-darkorange;
             position: absolute;
             display: inline-block;
             top: 12px;
             left: 0;
-
+            border-radius: 100%;
             width: 5px;
             height: 5px;
             line-height: 0;

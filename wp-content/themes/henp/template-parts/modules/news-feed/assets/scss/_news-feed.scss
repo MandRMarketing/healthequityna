@@ -1,0 +1,111 @@
+.news-feed {
+    background:linear-gradient(270deg,white 60%, $color-tan 60%);
+    background:-webkit-linear-gradient(270deg,white 60%, $color-tan 60%);
+    &__content {
+
+    }
+
+    &__container {
+        // margin-top: 150px;
+        &__navigation {
+            display: flex;
+            align-items: center;
+            flex-direction: row-reverse;
+            height: 150px;
+            @media (max-width: $second-break) {
+                justify-content: center;
+                margin-top: -50px;
+                margin-bottom: 100px;
+            }
+        }
+    } 
+
+    &__list {
+        border-bottom: 2px solid $color-darkorange;
+        padding-bottom: 50px;
+        margin-bottom: 0;
+    }
+
+    &__list-item {
+        &__image {
+            border-radius: 30px;
+        }
+    }
+
+    @media (min-width: $second-break) {
+        .slick-slide:not(:last-child) {
+            margin-right: 25px;
+        }
+    }
+
+        /* Arrows */
+    .slick-prev,
+    .slick-next {
+        top: -75px;
+        margin-top: -10px\9; /*lte IE 8 */
+        transform: translate(0, -50%);
+        border: none;
+        transition: 0.5s ease;
+        &:hover,
+        &:focus {
+            color: transparent;
+            &:before {
+                opacity: $slick-opacity-on-hover;
+                color: white;
+            }
+        }
+        &.slick-disabled:before {
+            opacity: $slick-opacity-not-active;
+        }
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        font-family: $slick-font-family;
+        font-size: 20px;
+        line-height: 1;
+        color: $slick-arrow-color;
+        opacity: $slick-opacity-default;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        transition: 0.5s ease;
+    }
+
+    @media (max-width: $second-break) {
+        .slick-prev {
+            right: 51% !important;
+        }
+    
+        .slick-next {
+            left: 51% !important;
+        }
+    }
+
+    .slick-prev {
+        right: 76%;
+        [dir='rtl'] & {
+            left: auto;
+            right: 25px;
+        }
+        &:before {
+            content: $slick-prev-character;
+            [dir='rtl'] & {
+                content: $slick-next-character;
+            }
+        }
+    }
+
+    .slick-next {
+        left: 26%;
+        [dir='rtl'] & {
+            left: 25px;
+            right: auto;
+        }
+        &:before {
+            content: $slick-next-character;
+            [dir='rtl'] & {
+                content: $slick-prev-character;
+            }
+        }
+    }
+}

@@ -7,11 +7,6 @@ $email = get_option('options_mandr_email');
 if ($phone || $address || $email) :
 ?>
 	<div class="contact-info">
-		<?php if ($phone) : ?>
-			<p class="contact-email">
-				<?= phone_link($phone); ?>
-			</p>
-		<?php endif; ?>
 		<?php if ($address) : ?>
 			<p class="contact-address">
 				<?php if ($address_link) : ?>
@@ -23,8 +18,11 @@ if ($phone || $address || $email) :
 				<?php endif; ?>
 			</p>
 		<?php endif; ?>
-		<?php if ($email) : ?>
+		<img src="/wp-content/themes/henp/assets/images/henp_footer_logo.png" alt="henp logo" />
+		<?php if ($email && $phone) : ?>
 			<p class="contact-email">
+				<?= phone_link($phone); ?>
+				<br />
 				<?= email_link($email); ?>
 			</p>
 		<?php endif; ?>
