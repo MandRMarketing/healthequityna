@@ -43,14 +43,16 @@ if (function_exists('shortcode_ui_register_for_shortcode')) {
 
 //Display template file at the top of the page, for debugging purposes
 //add_action('wp_head', 'show_template');
-function show_template() {
+function show_template()
+{
 	global $template;
 	print_r($template);
 }
 
 /* View Query Count */
 add_action('wp_footer', 'wpse_footer_db_queries', 1000);
-function wpse_footer_db_queries() {
+function wpse_footer_db_queries()
+{
 	echo '<!-- ' . get_num_queries() . 'q,' . timer_stop(0) . 's,' . time() . ' -->';
 
 	/**

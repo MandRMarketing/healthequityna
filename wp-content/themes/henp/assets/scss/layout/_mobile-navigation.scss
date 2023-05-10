@@ -78,10 +78,10 @@ $menu-icon-color: #000;
 .mobile-menu {
     background-color: #fff;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     position: fixed;
     z-index: 250;
-    top: var(--header-height-with-adminbar);
+    top: 0;
     right: 0;
     width: 100%;
     height: 100%;

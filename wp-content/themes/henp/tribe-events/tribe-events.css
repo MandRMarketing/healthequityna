@@ -1,0 +1,209 @@
+/* Events Calendar */
+
+.tribe-events-c-events-bar {
+    border-left: 0px !important;
+    border-right: 0px !important;
+    border-top: #F76800 solid 1px!important;
+    border-bottom: #F76800 solid 1px!important;
+}
+
+.tribe-common-c-btn.tribe-events-c-search__button {
+    background-color: #F76800 !important;
+    border-radius: 30px !important;
+    margin-right: 50px;
+    position: relative;
+}
+
+.tribe-common-c-btn.tribe-events-c-search__button::after {
+    content: '';
+    background: #F76800;
+    height: 100%;
+    width: 2px;
+    position: absolute;
+    right: -30px;
+    top: 0;
+}
+
+.tribe-events-c-view-selector__list-item-link::after {
+    content: unset !important;
+}
+
+.tribe-common-c-btn-border-small.tribe-events-c-top-bar__today-button {
+    border-radius: 30px !important;
+}
+
+.tribe-events-before-html h1 {
+    text-decoration: underline #FFE2CE 2px;
+    text-underline-offset: -4px; /* Move the underline 4 pixels above the text */
+    text-decoration-thickness: 22px; /* Set the thickness of the underline */
+    text-decoration-color: #FFE2CE; /* Set the color of the underline */
+    text-decoration-skip-ink: none;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.tribe-events-before-html h1::before {
+    content: '';
+    background: url(/wp-content/themes/henp/assets/images/henp.svg);
+    width: 69px;
+    height: 72px;
+    position: absolute;
+    left: calc(50% - 34.5px);
+    top: -100px;
+}
+
+.tribe-events-before-html h1::after {
+    content: '';
+    background: #F76800;
+    height: 42px;
+    width: 2px;
+    position: absolute;
+    left: calc(50% - 1px);
+    top: -150px;
+    visibility: visible;
+}
+
+.tribe-events-calendar-list__month-separator {
+    text-decoration: unset;
+    text-underline-offset: unset; /* Move the underline 4 pixels above the text */
+    text-decoration-thickness: unset; /* Set the thickness of the underline */
+    text-decoration-color: unset; /* Set the color of the underline */
+    text-transform: uppercase;
+}
+
+.tribe-events-calendar-list__month-separator time {
+    font-weight: 800 !important;
+}
+
+.day.current.active, .month.focused.active, .active.day, .month.focused.active:focus, .month.focused.active:hover, .active.day:hover, .active.day:focus {
+    background: #F76800 !important;
+    border-radius: 30px !important;
+}
+
+.month.current, .day.current:not(.active) {
+    background: #FFE2CE !important;
+    border-radius: 30px !important;
+}
+
+.tribe-common-c-btn-border.tribe-events-c-subscribe-dropdown__button {
+    border: unset !important;
+    border-radius: 30px !important;
+    background-color: #F76800 !important;
+    color: black;
+}
+
+.tribe-events .tribe-events-calendar-list__month-separator:after {
+    background-color: #F76800 !important;
+    height: 2px !important;
+}
+
+.tribe-common--breakpoint-medium.tribe-events .tribe-events-calendar-month__day:hover:after {
+    background-color: #F76800 !important;
+}
+
+.tribe-events .tribe-events-calendar-month__multiday-event-bar, .tribe-events .tribe-events-calendar-month__multiday-event-bar-inner {
+
+    background-color: #F76800 !important;
+
+}
+
+.tribe-events-single-event-title {
+    text-decoration: underline #FFE2CE 2px;
+    text-underline-offset: -4px; /* Move the underline 4 pixels above the text */
+    text-decoration-thickness: 22px; /* Set the thickness of the underline */
+    text-decoration-color: #FFE2CE; /* Set the color of the underline */
+    text-decoration-skip-ink: none;
+    text-align: center;
+    position: relative;
+}
+
+.tribe-events-single-event-title::before {
+    content: '';
+    background: url(/wp-content/themes/henp/assets/images/henp.svg);
+    width: 69px;
+    height: 72px;
+    position: absolute;
+    left: calc(50% - 34.5px);
+    top: -75px;
+}
+
+.tribe-events-single {
+    position: relative;
+}
+
+.tribe-events-single .card a, .tribe-events-single .card h4 {
+    font-size: 30px;
+}
+
+.tribe-events-single .card a {
+    display: block;
+    text-align: center;
+}
+
+.tribe-events-single .card a:hover {
+    color: #FFE2CE;
+}
+
+.tribe-events-single::before {
+    content: '';
+    background: #F76800;
+    height: 36px;
+    width: 2px;
+    position: absolute;
+    left: calc(50% - 1px);
+    top: -52px;
+    visibility: visible;
+}
+
+.tribe-events-schedule h2 {
+    text-decoration: unset;
+    text-underline-offset: unset; /* Move the underline 4 pixels above the text */
+    text-decoration-thickness: unset; /* Set the thickness of the underline */
+    text-decoration-color: unset; /* Set the color of the underline */
+    text-transform: uppercase;
+    font-weight: 800 !important;
+}
+
+.tribe-events-event-image {
+    width: 50%;
+    float: right;
+    padding: 0 0 25px 25px;
+}
+
+.tribe-events-event-image img {
+    border-radius: 30px;
+}
+
+.tribe-events-event-meta.primary, .tribe-events-event-meta.secondary {
+    order: 1 !important;
+}
+
+.tribe-events-event-meta:before, .tribe-events-meta-group.tribe-events-meta-group-gmap, .tribe-events-event-meta:before, .tribe-events-event-meta~div:not(.tribe-events-event-meta,.event-tickets) {
+    border-top: unset !important;
+}
+
+#tribe-events-footer {
+    border-top: unset !important;
+}
+
+.tribe-events-nav-pagination {
+    padding: 25px 0 !important;
+    border-top: 2px solid #F76800;
+    border-bottom: 2px solid #F76800;
+}
+
+.tribe-events-nav-pagination ul {
+    margin-bottom: 0 !important;
+}
+
+.tribe-events-single-section-title {
+    text-decoration: unset;
+    text-underline-offset: unset; /* Move the underline 4 pixels above the text */
+    text-decoration-thickness: unset; /* Set the thickness of the underline */
+    text-decoration-color: unset; /* Set the color of the underline */
+    font-size: 25px !important;
+}
+
+.tribe-events-single-section.tribe-events-event-meta {
+    width: 100% !important;
+}

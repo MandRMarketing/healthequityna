@@ -11,9 +11,21 @@ $primary_navigation = wp_get_nav_menu_items($menu);
                 </a>
                 <span class="sr-only"><?= bloginfo('name'); ?></span>
             </p>
-            <button id="mobile-trigger" type="button" class="mobile-header__button button--clear">
+            <script>
+                function toggleButtonText() {
+                    const buttonText = document.getElementById("menu-button-text");
+                    if (buttonText.textContent === "Menu") {
+                        buttonText.textContent = "Close";
+                    } else {
+                        buttonText.textContent = "Menu";
+                    }
+                }
+            </script>
+            <button id="mobile-trigger" type="button" class="mobile-header__button button--clear" onclick="toggleButtonText()">
                 <span class="mobile-header__button__text sr-only">Menu</span>
-                <span class="mobile-header__button__icon"></span>
+                <span class="mobile-header__button__icon">
+                    <p id="menu-button-text">Menu</p>
+                </span>
             </button>
         </div>
     </div>

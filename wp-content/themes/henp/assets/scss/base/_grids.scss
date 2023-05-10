@@ -20,6 +20,14 @@
     display: none;
 }
 
+.post {
+    section .container {
+        &::before {
+            content: unset !important;
+        }
+    }
+}
+
 section {
     .container:first-of-type {
         &::before {

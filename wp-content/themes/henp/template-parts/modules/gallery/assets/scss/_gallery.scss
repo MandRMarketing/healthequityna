@@ -1,11 +1,23 @@
 .gallery {
     &__container {
-        margin: auto;
+        @media (min-width: $second-break) {
+            margin-left: 0;
+            margin-right: 0;
+        }
         width: 100%;
     }
 
     .slick-slider {
         margin-bottom: 132px;
+        @media (min-width: $second-break) {
+            width: 100vw;
+        }
+    }
+
+    .slick-list.draggable {
+        @media (min-width: $second-break) {
+            width: 100vw;
+        }
     }
 }
 

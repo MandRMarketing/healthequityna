@@ -1,10 +1,12 @@
 <?php
 
-function display_single_blog_listing($id) {
+function display_single_blog_listing($id)
+{
     get_template_part('template-parts/posts/blog-listing', null, array('id' => $id));
 }
 
-function blog_index_schema() {
+function blog_index_schema()
+{
     //Grab the variables we need from the 'Blog Settings' section on the WP Admin Options tab
     $blogTitle = get_option('options_mandr_blog_title');
 
@@ -110,7 +112,8 @@ function blog_index_schema() {
 <?php
 }
 
-function blog_single_schema() {
+function blog_single_schema()
+{
     //Grab the variables we need from the 'Blog Settings' section on the WP Admin Options tab 
     $blogLogo = get_option('options_mandr_blog_logo');
     $blogLogo = wp_get_attachment_image_src($blogLogo, 'post-thumbnail');
@@ -165,7 +168,8 @@ function blog_single_schema() {
 }
 
 
-function blog_categories($id = null) {
+function blog_categories($id = null)
+{
     $id = $id ? $id : get_the_id();
 
     $terms = get_the_terms($id, 'category');
@@ -197,7 +201,8 @@ function blog_categories($id = null) {
     endif;
 }
 
-function blog_tags($id = null) {
+function blog_tags($id = null)
+{
     $id = $id ? $id : get_the_id();
 
     $tags = wp_get_post_tags($id);
@@ -226,7 +231,8 @@ function blog_tags($id = null) {
 /**
  * Display numbered pagination for blog / archive
  */
-function numbered_pagination($query = null) {
+function numbered_pagination($query = null)
+{
     if ($query === null) {
         global $wp_query;
         $query = $wp_query;
@@ -257,13 +263,14 @@ function numbered_pagination($query = null) {
             </nav>
             <!--.oldernewer-->
         </aside>
-<?php
+    <?php
     endif;
 }
 
 // Use get_the_advanced_acf_excerpt, but this is the main legwork for that function
 // to get and trim excerpt from ACF content
-function wp_trim_advanced_acf_excerpt($text = '', $post = null) {
+function wp_trim_advanced_acf_excerpt($text = '', $post = null)
+{
     $raw_excerpt = $text;
     if ('' == $text) {
         $post = get_post($post);
@@ -322,7 +329,8 @@ function wp_trim_advanced_acf_excerpt($text = '', $post = null) {
 }
 
 // Get excerpt from a page with ACF content if excerpt isn't defined already
-function get_the_advanced_acf_excerpt($post = null) {
+function get_the_advanced_acf_excerpt($post = null)
+{
     $post = get_post($post);
     if (empty($post)) {
         return '';
@@ -337,4 +345,71 @@ function get_the_advanced_acf_excerpt($post = null) {
     } else {
         return wp_trim_advanced_acf_excerpt();
     }
+}
+
+/**Function for reloadless filtering of news articles */
+add_action('wp_ajax_filter_articles', 'filter_articles');
+add_action('wp_ajax_nopriv_filter_articles', 'filter_articles');
+function filter_articles()
+{
+    $filterCategory = $_GET['filterCategory'];
+
+    if ($filterCategory == "all") {
+        $args = array(
+            'post_type'         => 'post',
+            'posts_per_page'     => 4,
+            'is_paged' => false,
+            'paged' => (get_query_var('paged')) ? get_query_var('paged') : 1,
+        );
+    } else {
+        $args = array(
+            'post_type'         => 'post',
+            'posts_per_page'     => 4,
+            'is_paged' => false,
+            'paged' => (get_query_var('paged')) ? get_query_var('paged') : 1,
+            'category_name' => $filterCategory,
+
+        );
+    }
+
+    ?>
+    <div id="results">
+        <?php
+        $articles_query = new WP_Query($args);
+
+        ob_start();
+        // var_dump($portfolio_query->have_posts());
+        if ($articles_query->have_posts()) :
+            while ($articles_query->have_posts()) : $articles_query->the_post();
+                // Skip the featured post that was already displayed
+                if (in_category('featured')) {
+                    continue;
+                } else {
+                    get_template_part('template-parts/posts/blog-listing', null, array('id' => get_the_ID()));
+                }
+        ?>
+            <?php
+            endwhile;
+        else :
+            ?>
+    </div>
+    <p>No articles found matching your filters.</p>
+<?php
+        endif;
+        wp_reset_postdata();
+?>
+<?php
+    // $big = 999999999; // need an unlikely integer
+    // echo paginate_links(array(
+    // 	'base' => str_replace($big, '%#%', get_pagenum_link($big)),
+    // 	'format' => '?paged=%#%',
+    // 	'current' => max(1, get_query_var('paged')),
+    // 	'prev_text' => 'Prev',
+    // 	'next_text' => 'Next',
+    // 	'total' => $portfolio_query->max_num_pages
+    // ));
+
+    $htmlContent = ob_get_clean();
+    echo $htmlContent;
+    exit;
 }

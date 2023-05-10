@@ -58,7 +58,9 @@ $section_classes .= $display_type === 'List' ? ' gallery--list' : ' gallery--car
                 foreach ($gallery as $image) :
                 ?>
                     <li class="gallery__list-item slick-slide">
-                        <img class="gallery__list-item__image" src="<?= $image['url']; ?>" alt="<?= $image['alt']; ?>">
+                        <a class="lightbox-link" href="<?= $image['url']; ?>">
+                            <img class="gallery__list-item__image" src="<?= $image['url']; ?>" alt="<?= $image['alt']; ?>">
+                        </a>
                     </li><?php
                         endforeach;
                             ?>
@@ -80,6 +82,11 @@ $section_classes .= $display_type === 'List' ? ' gallery--list' : ' gallery--car
                                 slidesToShow: 1,
                             }
                         }, ]
+                    });
+
+                    $('.lightbox-link').magnificPopup({
+                        type: 'image'
+                        // other options
                     });
                 });
             </script>

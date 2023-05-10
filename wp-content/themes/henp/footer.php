@@ -12,7 +12,7 @@
 	</div>
 </footer>
 
-<span id="navigation-overlay" class="navigation-overlay" title="Close navigation menu"></span>
+<span id="navigation-overlay" class="navigation-overlay" title="Close navigation menu" onclick="toggleButtonText()"></span>
 <?php wp_footer(); ?>
 </body>
 

@@ -1,6 +1,6 @@
 /* Mobile Nav
 ---------------------------------------------------------------------------------------------------- */
-$menu-link-color: $color-lightorange;
+$menu-link-color: $color-black;
 $menu-link-hover-color: #000;
 $menu-icon-color: $color-lightorange;
 
@@ -13,6 +13,16 @@ $menu-icon-color: $color-lightorange;
     width: 100%;
     height: auto;
     padding: $spacing-tiny $spacing-xs;
+
+    &::after {
+        content: '';
+        background-color: $color-tan;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 109px;
+        height: 100%;
+    }
 
     .header--init &,
     .nav-active & {
@@ -102,34 +112,28 @@ $menu-icon-color: $color-lightorange;
         &__icon {
             pointer-events: none; // Remove this so JavaScript click event always grabs button
 
-            &,
-            &:before,
-            &:after {
-                background-color: #000;
+            &{
+                background-color: $color-darkorange;
                 display: inline-block;
                 position: relative;
                 margin: 0 auto;
-                height: 4px;
-                width: 35px;
-                border-radius: 1px;
+                height: 61px;
+                width: 61px;
+                border-radius: 100%;
                 cursor: pointer;
                 transition: all 0.3s ease-in-out;
-                transform: scaleX(1);
-                transform-origin: right;
-            }
-            &:before {
-                position: absolute;
-                content: '';
-                left: 0;
-                top: -9px;
-                transform: scaleX(0.7);
-            }
-            &:after {
-                position: absolute;
-                content: '';
-                left: 0;
-                bottom: -9px;
-                transform: scaleX(0.7);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                p {
+                    margin-bottom: 0;
+                    color: $color-white;
+                    border-top: 5px solid $color-white;
+                    border-bottom: 5px solid $color-white;
+                    font-size: 14px;
+                    text-transform: uppercase;
+                }
             }
 
             .nav-active & {
@@ -149,10 +153,10 @@ $menu-icon-color: $color-lightorange;
 .mobile-menu {
     background-color: $color-tan + e6; //+e6 = 90% opacity
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     position: fixed;
-    z-index: 250;
-    top: var(--header-height-with-adminbar);
+    z-index: 0;
+    top: 0;
     right: 0;
     width: 100%;
     max-width: 768px;
@@ -234,17 +238,34 @@ $menu-icon-color: $color-lightorange;
         &__link {
             display: block;
             width: 100%;
-            border-bottom: 1px solid #eee;
             padding: $spacing-tiny;
             color: $menu-link-color;
             font-size: 24px;
             font-weight: 400;
             transition: transform 350ms cubic-bezier(0.21, 0.66, 0.79, 1);
+            text-decoration: none;
+            text-transform: uppercase;
+            position: relative;
+            padding-left: 63px;
+            @media (min-width: $mobile-med) {
+                margin-left: 15%;
+            }
+            font-size: 28px;
+            font-weight: 800;
 
             &:hover,
             &:focus {
-                color: $menu-link-hover-color;
-                text-decoration: underline;
+                color: $color-darkorange;
+            }
+
+            &::before {
+                content: '';
+                background-color: $color-darkorange;
+                width: 42px;
+                height: 2px;
+                position: absolute;
+                top: calc(50% - 1px);
+                left: 0;
             }
         }
 
@@ -414,23 +435,23 @@ $menu-icon-color: $color-lightorange;
     }
 }
 
-body.nav-active #header .mobile-header__button__icon {
-    background: transparent; 
+// body.nav-active #header .mobile-header__button__icon {
+//     background: transparent; 
 
-    &:before {
-        content: 'X';
-        background: transparent;
-        font-weight: 700;
-        font-size: 32px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        position: absolute;
-        width: 32px;
-        height: 48px;
-    }
+//     &:before {
+//         content: 'X';
+//         background: transparent;
+//         font-weight: 700;
+//         font-size: 32px;
+//         top: 50%;
+//         left: 50%;
+//         transform: translate(-50%,-50%);
+//         position: absolute;
+//         width: 32px;
+//         height: 48px;
+//     }
 
-    &:after {
-        display: none;
-    }
-}
+//     &:after {
+//         display: none;
+//     }
+// }

@@ -1,8 +1,20 @@
 .homepage-header {
     background:linear-gradient(270deg,white 33%, $color-darkgrey 33%);
     background:-webkit-linear-gradient(270deg,white 33%, $color-darkgrey 33%);
+    position: unset;
     &::before {
         content: unset;
+    }
+    @media only screen and (min-width: $second-break) {
+        &::after {
+            content: '';
+            background-color: $color-tan;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 553px;
+            height: 343px;
+        }
     }
     &__container {
         position: relative;

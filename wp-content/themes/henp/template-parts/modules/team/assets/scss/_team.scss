@@ -2,6 +2,22 @@
     background-color: $color-darkgrey;
     border-radius: 30px;
     color: white;
+    @media (min-width: $laptop-break) {
+        margin: 0 100px;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        background: $color-tan;
+        height: 300px;
+        z-index: -1;
+        @media (min-width: $laptop-break) {
+            margin-left: -100px;
+        }
+    }
 
     @media (max-width: $second-break-max) {
         border-radius: 0;
@@ -31,6 +47,7 @@
         }
     }
     &__container {
+        padding: 0 25px;
 
     }
 

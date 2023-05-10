@@ -1,0 +1,11 @@
+.counties-map {
+    &__container {
+        display: flex;
+        gap: 75px;
+        border-bottom: 2px solid $color-darkorange;
+        padding-bottom: 50px;
+        .toggles__container {
+            width: 50%;
+        }
+    }
+}
