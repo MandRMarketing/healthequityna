@@ -10,6 +10,21 @@
                 width: 100% !important;
             }
         }
+
+        .map__container {
+            width: 100%;
+
+            svg {
+                text {
+                    font-family: 'Open Sans', sans-serif !important;
+                    font-weight: 700;
+                }
+                path:hover {
+                    fill: $color-peach;
+                    cursor: pointer;
+                }
+            }
+        }
         .toggles__container {
             width: 50%;
         }
