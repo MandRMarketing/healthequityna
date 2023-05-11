@@ -107,6 +107,7 @@ h2,
         font-size: 40px;
     }
 
+    text-decoration: underline;
     text-decoration: underline $color-peach 2px;
     text-underline-offset: -4px; /* Move the underline 4 pixels above the text */
     text-decoration-thickness: 22px; /* Set the thickness of the underline */
@@ -150,6 +151,7 @@ h6,
 .header-title {
     text-align: center;
     padding-top: 50px;
+    text-decoration: underline;
     text-decoration: underline $color-peach 2px;
     text-underline-offset: -4px; /* Move the underline 4 pixels above the text */
     text-decoration-thickness: 22px; /* Set the thickness of the underline */

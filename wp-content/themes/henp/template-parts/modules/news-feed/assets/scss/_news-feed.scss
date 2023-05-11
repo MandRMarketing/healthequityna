@@ -2,7 +2,9 @@
     background:linear-gradient(270deg,white 60%, $color-tan 60%);
     background:-webkit-linear-gradient(270deg,white 60%, $color-tan 60%);
     &__content {
-
+        @media (max-width: $mobile-med-max) {
+            margin-top: 25px;
+        }
     }
 
     &__container {

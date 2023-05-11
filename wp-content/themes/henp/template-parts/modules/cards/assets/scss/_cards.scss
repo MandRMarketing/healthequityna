@@ -74,6 +74,7 @@
                         margin-right: 75px;
                         min-width: 121px;
                         text-transform: uppercase;
+                        text-decoration: underline;
                         text-decoration: underline $color-lightorange 2px;
                         text-underline-offset: -4px; /* Move the underline 4 pixels above the text */
                         text-decoration-thickness: 16px; /* Set the thickness of the underline */
@@ -100,6 +101,7 @@
                     border-radius: 60px;
                     >h4 {
                         text-transform: uppercase;
+                        text-decoration: underline;
                         text-decoration: underline $color-lightorange 2px;
                         text-underline-offset: -4px; /* Move the underline 4 pixels above the text */
                         text-decoration-thickness: 16px; /* Set the thickness of the underline */

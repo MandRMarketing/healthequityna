@@ -195,9 +195,16 @@
 .filter-form-container {
     width: 100%;
     display: flex;
-    flex-direction: row-reverse;
+    // flex-direction: row-reverse;
+    @media (max-width: $mobile-med-max) {
+        flex-direction: column;
+        form.filter-form {
+            width: 100% !important;
+        }
+    }
     padding-top: 50px;
-    #category {
+    gap: 25px;
+    #category, #tag, #archive {
         background-color: #F5F5F5;
         border: unset;
         color: #404040;
@@ -208,6 +215,10 @@
         background-position: right 10px center;
         background-size: 15px;
         margin-right: 10px;
+    }
+
+    form.filter-form {
+        width: 33%;
     }
 }
 

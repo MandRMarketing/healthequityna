@@ -4,8 +4,20 @@
         gap: 75px;
         border-bottom: 2px solid $color-darkorange;
         padding-bottom: 50px;
+        @media (max-width: $second-break-max) {
+            flex-direction: column;
+            .toggles__container {
+                width: 100% !important;
+            }
+        }
         .toggles__container {
             width: 50%;
+        }
+    }
+
+    &__content {        
+        @media (max-width: $mobile-med-max) {
+            margin-top: 25px;
         }
     }
 }

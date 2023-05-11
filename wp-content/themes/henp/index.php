@@ -9,7 +9,7 @@ get_header();
 		<div class="archive-holder">
 			<?php get_template_part('template-parts/title'); ?>
 			<div class="filter-form-container">
-				<form class="filter-form" onsubmit="handleFilterSubmit(event)">
+				<form class="filter-form" onsubmit="handleFilterSubmit(event, 'category')">
 					<label aria-hidden="true" for="category" style="display:none;">Filter by Category:</label>
 					<select name="category" id="category">
 						<option selected value="all">All Categories</option>
@@ -19,6 +19,34 @@ get_header();
 							if ($category->slug == 'featured') {
 								continue;
 							}
+						?>
+							<option value="<?= $category->slug ?>"><?= $category->name ?></option>
+						<?php
+						endforeach;
+						?>
+					</select>
+				</form>
+				<form class="filter-form" onsubmit="handleFilterSubmit(event, 'tag')">
+					<label aria-hidden="true" for="tag" style="display:none;">Filter by Tag:</label>
+					<select name="tag" id="tag">
+						<option selected value="all">All Tags</option>
+						<?php
+						$tags = get_tags();
+						foreach ($tags as $tag) :
+						?>
+							<option value="<?= $tag->slug ?>"><?= $tag->name ?></option>
+						<?php
+						endforeach;
+						?>
+					</select>
+				</form>
+				<form class="filter-form" onsubmit="handleFilterSubmit(event, 'archive')">
+					<label aria-hidden="true" for="archive" style="display:none;">Filter by Archive:</label>
+					<select name="archive" id="archive">
+						<option selected value="all">Archives</option>
+						<?php
+						$archives = get_categories(); // ???????????????????????????????????
+						foreach ($archives as $archive) :
 						?>
 							<option value="<?= $category->slug ?>"><?= $category->name ?></option>
 						<?php
@@ -114,29 +142,72 @@ get_header();
 		</div>
 </main>
 <script>
-	document.querySelector('.filter-form').addEventListener('submit', handleFilterSubmit);
+	const filterForms = document.querySelectorAll('.filter-form');
+	filterForms.forEach(form => {
+		form.addEventListener('submit', handleFilterSubmit);
+	});
 
-	function handleFilterSubmit(event) {
+	function handleFilterSubmit(event, filterType) {
 		event.preventDefault();
 
-		// Get the selected values of the filters
-		var filterCategory = document.querySelector('#category').value;
+		if (filterType === "category") {
+			// Get the selected values of the filters
+			var filterCategory = document.querySelector('#category').value;
 
-		$.ajax({
-				url: '/wp-admin/admin-ajax.php',
-				type: 'GET',
-				data: {
-					'action': 'filter_articles',
-					'filterCategory': `${filterCategory}`
-				},
-				dataType: 'html'
-			})
-			.success(function(results) {
-				$('#results').html(results);
-			})
-			.fail(function(jqXHR, textStatus) {
-				console.log("Request failed: " + textStatus);
-			});
+			$.ajax({
+					url: '/wp-admin/admin-ajax.php',
+					type: 'GET',
+					data: {
+						'action': 'filter_articles',
+						'filterCategory': `${filterCategory}`
+					},
+					dataType: 'html'
+				})
+				.success(function(results) {
+					$('#results').html(results);
+				})
+				.fail(function(jqXHR, textStatus) {
+					console.log("Request failed: " + textStatus);
+				});
+		} else if (filterType === "tag") {
+			// Get the selected values of the filters
+			var filterTag = document.querySelector('#tag').value;
+
+			$.ajax({
+					url: '/wp-admin/admin-ajax.php',
+					type: 'GET',
+					data: {
+						'action': 'filter_articles',
+						'filterCategory': `${filterTag}`
+					},
+					dataType: 'html'
+				})
+				.success(function(results) {
+					$('#results').html(results);
+				})
+				.fail(function(jqXHR, textStatus) {
+					console.log("Request failed: " + textStatus);
+				});
+		} else if (filterType === "archive") {
+			// Get the selected values of the filters
+			var filterArchive = document.querySelector('#archive').value;
+
+			$.ajax({
+					url: '/wp-admin/admin-ajax.php',
+					type: 'GET',
+					data: {
+						'action': 'filter_articles',
+						'filterCategory': `${filterArchive}`
+					},
+					dataType: 'html'
+				})
+				.success(function(results) {
+					$('#results').html(results);
+				})
+				.fail(function(jqXHR, textStatus) {
+					console.log("Request failed: " + textStatus);
+				});
+		}
 	}
 
 	$(document).ready(function() {

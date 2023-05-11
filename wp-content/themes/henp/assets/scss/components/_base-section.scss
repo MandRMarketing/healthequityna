@@ -17,14 +17,30 @@
         &::before {
             top: -61px;
             height: 72px;
+            @media (max-width: $laptop-break) {
+                top: -41px;
+                height: 54px;
+            }
+
+            @media (max-width: $mobile-break-max) {
+                top: -30px;
+                height: 41px;
+            }
+
+            @media (max-width: $mobile-med-max) {
+                top: -17px;
+                height: 25px;
+            }
         }
     }
 
     &#about {
         &::before {
-            top: -201px;
-            height: 242px;
-            z-index: -1;
+            top: 125px;
+            height: 136px;
+            @media (max-width: $second-break-max) {
+                display: none;
+            }
         }
     }
 
@@ -37,8 +53,22 @@
 
     &#resources {
         &::before {
-            top: -61px;
+            top: -56px;
             height: 72px;
+            @media (max-width: $laptop-break) {
+                top: -36px;
+                height: 51px;
+            }
+
+            @media (max-width: $mobile-break-max) {
+                top: -25px;
+                height: 41px;
+            }
+
+            @media (max-width: $mobile-med-max) {
+                top: -13px;
+                height: 25px;
+            }
         }
     }
 
@@ -67,6 +97,16 @@
         &::before {
             top: -36px;
             height: 58px;
+            
+            @media (max-width: $mobile-break-max) {
+                top: -25px;
+                height: 41px;
+            }
+
+            @media (max-width: $mobile-med-max) {
+                top: -13px;
+                height: 25px;
+            }
         }
     }
 

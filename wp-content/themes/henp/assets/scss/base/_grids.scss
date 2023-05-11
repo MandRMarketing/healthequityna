@@ -113,6 +113,7 @@ section {
     &#our-partners{
         color: $color-white;
         h2 {
+            text-decoration: underline;
             text-decoration: underline $color-grey 2px;
             text-underline-offset: -16px; /* Move the underline 4 pixels above the text */
             text-decoration-thickness: 22px; /* Set the thickness of the underline */
@@ -129,6 +130,7 @@ section {
         color: $color-white;
         z-index: 1;
         h2 {
+            text-decoration: underline;
             text-decoration: underline $color-grey 2px;
             text-underline-offset: -16px; /* Move the underline 4 pixels above the text */
             text-decoration-thickness: 22px; /* Set the thickness of the underline */

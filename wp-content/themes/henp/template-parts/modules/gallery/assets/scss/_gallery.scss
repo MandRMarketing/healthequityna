@@ -7,6 +7,12 @@
         width: 100%;
     }
 
+    &__content {
+        @media (max-width: $mobile-med-max) {
+            margin-top: 25px;
+        }
+    }
+
     .slick-slider {
         margin-bottom: 132px;
         @media (min-width: $second-break) {

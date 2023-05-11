@@ -4,7 +4,7 @@ $section_classes = get_sub_field('section_classes');
 $section_background_color = get_sub_field('section_background_color');
 $section_background_color = !empty($section_background_color) ? "style=\"background-color: {$section_background_color};\"" : '';
 $content = get_sub_field('content'); // WYSIWYG
-$map = get_sub_field('map');
+// $map = get_sub_field('map');
 $toggles = get_sub_field('toggles'); // repeater
 
 // Can't just print an empty id and have id="", so build printout here instead
@@ -28,7 +28,7 @@ if ($padding_top && $padding_bottom) {
     </div>
     <div class="counties-map__container container">
         <div class="map__container">
-            <img src="<?= $map['url']; ?>" alt="<?= $map['alt']; ?>" />
+            <!-- <img src="<?= $map['url']; ?>" alt="<?= $map['alt']; ?>" /> -->
         </div>
         <div class=" toggles__container">
             <?php
