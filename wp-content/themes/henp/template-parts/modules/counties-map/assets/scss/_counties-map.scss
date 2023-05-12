@@ -11,6 +11,10 @@
             }
         }
 
+        .toggle {
+            margin-bottom: 0;
+        }
+
         .map__container {
             width: 100%;
 
@@ -27,6 +31,13 @@
         }
         .toggles__container {
             width: 50%;
+            .toggle__box {
+                padding-top: 0px;
+                padding-bottom: 10px;
+                p {
+                    margin-bottom: 0;
+                }
+            }
         }
     }
 

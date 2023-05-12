@@ -35,6 +35,11 @@
     }
 
     &#about {
+        h3 {
+            font-family: 'Open Sans', sans-serif !important;
+            font-style: italic;
+            font-weight: 400 !important;
+        }
         &::before {
             top: 125px;
             height: 136px;

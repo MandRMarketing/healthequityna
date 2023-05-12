@@ -35,7 +35,7 @@
             position: absolute !important;
             background: #0000007d !important;
             height: 98.5% !important;
-            border-radius: 0 30% 0 0;
+            border-radius: 0 300px 0 0;
             top: 0 !important;
             @media only screen and (min-width: $second-break) {
                 width: 100% !important;
@@ -50,7 +50,7 @@
     }  
     &__image {
         height: auto;
-        border-radius: 0 30% 0 0;
+        border-radius: 0 300px 0 0;
         z-index: -1;
         @media only screen and (min-width: $second-break) {
             width: 100%;
@@ -74,8 +74,8 @@
         h1 {
             text-decoration: underline;
             text-decoration: underline $color-darkorange 2px;
-            text-underline-offset: -4px; /* Move the underline 4 pixels above the text */
-            text-decoration-thickness: 22px; /* Set the thickness of the underline */
+            text-underline-offset: -8px; /* Move the underline 4 pixels above the text */
+            text-decoration-thickness: 18px; /* Set the thickness of the underline */
             text-decoration-color: $color-darkorange; /* Set the color of the underline */
             text-decoration-skip-ink: none;
         }

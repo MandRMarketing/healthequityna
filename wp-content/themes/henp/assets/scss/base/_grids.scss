@@ -90,6 +90,18 @@ section {
             overflow: hidden;
             position: relative;
         }
+
+        .fade-text {
+            opacity: 1;
+            max-height: 6em;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+          }
+          
+          .fade-text.expanded {
+            max-height: 1000px; /* or any value larger than the height of the content */
+            transition: max-height 0.5s ease-in-out;
+          }
         
         .fade-text:after {
             content: "";
@@ -115,8 +127,8 @@ section {
         h2 {
             text-decoration: underline;
             text-decoration: underline $color-grey 2px;
-            text-underline-offset: -16px; /* Move the underline 4 pixels above the text */
-            text-decoration-thickness: 22px; /* Set the thickness of the underline */
+            text-underline-offset: -18px; /* Move the underline 4 pixels above the text */
+            text-decoration-thickness: 18px; /* Set the thickness of the underline */
             text-decoration-color: $color-grey; /* Set the color of the underline */
             text-decoration-skip-ink: none;
         }
@@ -132,8 +144,8 @@ section {
         h2 {
             text-decoration: underline;
             text-decoration: underline $color-grey 2px;
-            text-underline-offset: -16px; /* Move the underline 4 pixels above the text */
-            text-decoration-thickness: 22px; /* Set the thickness of the underline */
+            text-underline-offset: -18px; /* Move the underline 4 pixels above the text */
+            text-decoration-thickness: 18px; /* Set the thickness of the underline */
             text-decoration-color: $color-grey; /* Set the color of the underline */
             text-decoration-skip-ink: none;
         }

@@ -73,6 +73,7 @@
                     >h4 {
                         margin-right: 75px;
                         min-width: 121px;
+                        font-style: normal !important;
                         text-transform: uppercase;
                         text-decoration: underline;
                         text-decoration: underline $color-lightorange 2px;
@@ -84,6 +85,8 @@
                     .card__content {
                         border-left: 2px solid $color-white;
                         padding-left: 75px;
+                        color: #222222;
+                        font-style: italic;
                     }
                 }
             }

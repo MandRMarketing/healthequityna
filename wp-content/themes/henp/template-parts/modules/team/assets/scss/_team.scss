@@ -44,8 +44,8 @@
         h2 {
             text-decoration: underline;
             text-decoration: underline $color-grey 2px;
-            text-underline-offset: -4px; /* Move the underline 4 pixels above the text */
-            text-decoration-thickness: 22px; /* Set the thickness of the underline */
+            text-underline-offset: -8px; /* Move the underline 4 pixels above the text */
+            text-decoration-thickness: 18px; /* Set the thickness of the underline */
             text-decoration-color: $color-grey; /* Set the color of the underline */
             text-decoration-skip-ink: none;
         }
@@ -107,6 +107,26 @@
         }
         &__content {
             padding-right: 30px;
+            h4 {
+                font-size: 26px;
+                font-weight: 700;
+                font-style: italic;
+                font-family: 'Open Sans', sans-serif !important;
+            }
+
+            h5 {
+                font-size: 20px;
+                text-transform: uppercase;
+                font-weight: 700 !important;
+                font-style: italic !important;
+            }
+
+            a {
+                color: $color-white;
+                &:hover {
+                    color: $color-darkorange
+                }
+            }
         }
     }
 }

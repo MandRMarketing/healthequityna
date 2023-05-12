@@ -48,7 +48,12 @@ if ($padding_top && $padding_bottom) {
                         <br />
                         <?= $job_title ?>
                         <p>
-                            <a href="mailto:<?= $email ?>"><?= $email ?></a>
+                            <?php if ($email) : ?>
+                                <a href="mailto:<?= $email ?>">
+                                    <img height="27" width="27" src="/wp-content/themes/henp/assets/images/email.svg" alt="Email icon">
+                                    <?= $email ?>
+                                </a>
+                            <?php endif; ?>
                         </p>
                     </div>
                 </div>
@@ -77,10 +82,12 @@ if ($padding_top && $padding_bottom) {
                         <br />
                         <?= $job_title ?>
                         <p>
-                            <a href="mailto:<?= $email ?>">
-                                <img height="27" width="27" src="/wp-content/themes/henp/assets/images/email.svg" alt="Email icon">
-                                <?= $email ?>
-                            </a>
+                            <?php if ($email) : ?>
+                                <a href="mailto:<?= $email ?>">
+                                    <img height="27" width="27" src="/wp-content/themes/henp/assets/images/email.svg" alt="Email icon">
+                                    <?= $email ?>
+                                </a>
+                            <?php endif; ?>
                         </p>
                     </div>
                 </div>

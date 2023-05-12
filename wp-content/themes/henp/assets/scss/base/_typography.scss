@@ -109,8 +109,8 @@ h2,
 
     text-decoration: underline;
     text-decoration: underline $color-peach 2px;
-    text-underline-offset: -4px; /* Move the underline 4 pixels above the text */
-    text-decoration-thickness: 22px; /* Set the thickness of the underline */
+    text-underline-offset: -8px; /* Move the underline 4 pixels above the text */
+    text-decoration-thickness: 18px; /* Set the thickness of the underline */
     text-decoration-color: $color-peach; /* Set the color of the underline */
     text-decoration-skip-ink: none;
     
@@ -153,8 +153,8 @@ h6,
     padding-top: 50px;
     text-decoration: underline;
     text-decoration: underline $color-peach 2px;
-    text-underline-offset: -4px; /* Move the underline 4 pixels above the text */
-    text-decoration-thickness: 22px; /* Set the thickness of the underline */
+    text-underline-offset: -8px; /* Move the underline 4 pixels above the text */
+    text-decoration-thickness: 18px; /* Set the thickness of the underline */
     text-decoration-color: $color-peach; /* Set the color of the underline */
     text-decoration-skip-ink: none;
 }
@@ -165,7 +165,7 @@ h6,
 a {
     color: $color-link;
     text-decoration: underline;
-
+    font-style: italic;
     &:hover,
     &:focus {
         color: $color-linkhover;
@@ -185,6 +185,7 @@ a.btn, button.btn {
     border-radius: 30px;
     border: none;
     transition: 0.5s ease;
+    font-style: unset;
     &:hover  {
         color: $color-white;
     }
@@ -198,6 +199,7 @@ a.btn-arrow {
     text-decoration: none;
     color: $color-black;
     position: relative;
+    font-style: unset;
     &::after {
         content: '';
         background: url(/wp-content/themes/henp/assets/images/btn-arrow.svg);

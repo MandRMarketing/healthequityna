@@ -23,6 +23,7 @@ $color-text: $color-black;
             height: auto;
             border: none;
             padding: 10px 60px 10px 24px;
+            font-style: normal;
 
             color: $color-text;
             text-decoration: none;
@@ -64,6 +65,7 @@ $color-text: $color-black;
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
+                    font-style: normal;
                 }
             }
         }
