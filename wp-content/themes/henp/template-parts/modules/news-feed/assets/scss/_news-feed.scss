@@ -37,6 +37,11 @@
     &__list-item {
         &__image {
             border-radius: 30px;
+            margin-bottom: 25px;
+        }
+
+        h3 {
+            color: $color-grey;
         }
     }
 
@@ -70,7 +75,7 @@
     .slick-prev:before,
     .slick-next:before {
         font-family: $slick-font-family;
-        font-size: 20px;
+        font-size: 40px;
         line-height: 1;
         color: $slick-arrow-color;
         opacity: $slick-opacity-default;

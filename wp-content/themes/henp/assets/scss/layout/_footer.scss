@@ -11,7 +11,7 @@ Site Footer
     font-size: 14px;
     padding: 40px 0;
     text-align: center;
-    border-radius: 25% 0 0 0;
+    border-radius: 300px 0 0 0;
     height: 641px;
     position: relative;
     @media (max-width: $second-break-max) {
@@ -71,7 +71,7 @@ Site Footer
         }
         .contact-address {
             border-right: 2px solid $color-darkorange;
-            padding: 0 50px;
+            padding: 25px 50px;
             @media (max-width: $second-break-max) {
                 order: 2;
                 padding-bottom: 25px;
@@ -81,7 +81,7 @@ Site Footer
 
         .contact-email {
             border-left: 2px solid $color-darkorange;
-            padding: 0 50px;
+            padding: 25px 50px;
             @media (max-width: $second-break-max) {
                 order: 3;
             }

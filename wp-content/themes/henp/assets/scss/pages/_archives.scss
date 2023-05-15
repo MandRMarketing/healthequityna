@@ -81,8 +81,10 @@
     display: flex;
     padding-top: $spacing-sm;
     align-items: center;
-    gap: 50px;
-    margin-bottom: 50px;
+    @media (min-width: $mobile-break) {
+        margin-bottom: 50px;
+        gap: 50px;
+    }
     @media (max-width: $mobile-break-max) {
         flex-direction: column;
         &__header {
@@ -102,13 +104,16 @@
     &__header {
         width: 70%;
         &__title {
-            color: $color-darkorange;
+            color: $color-grey;
             margin-bottom: 10px;
         }
 
         &__time {
             display: block;
-            margin-bottom: 50px;
+            margin-bottom: 15px;
+            @media (min-width: $mobile-break) {
+                margin-bottom: 50px;
+            }
         }
     }
 
@@ -164,6 +169,12 @@
     }
     &__content {
         flex: 1;
+        h3 {
+            a {
+                color: $color-grey;
+                text-decoration: none;
+            }
+        }
         &__excerpt {
             overflow-y: hidden;
             text-overflow: ellipsis;
@@ -244,6 +255,16 @@
     h2 {
         text-align: center;
     }
+}
+
+.post-date {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.post-author {
+    text-transform: uppercase;
+    font-style: normal !important;
 }
 
 .post-socials {
@@ -337,7 +358,9 @@
         left: 0;
     }
     &__container {
-
+        h3 {
+            color: $color-grey;
+        }
     }
 
     &__header {

@@ -177,6 +177,8 @@ a {
 }
 
 a.btn, button.btn {
+    font-family: "century-gothic", sans-serif !important;
+    font-weight: 700 !important;
     display: inline-block;
     background-color: $color-darkorange;
     text-decoration: none;
@@ -186,8 +188,10 @@ a.btn, button.btn {
     border: none;
     transition: 0.5s ease;
     font-style: unset;
-    &:hover  {
+    &:hover {
         color: $color-white;
+        background: $color-lightorange;
+        transform: scaleX(calc(1 + (5 / 100))); /* add 10% to the current width */
     }
     &:focus {
         box-shadow: none;
@@ -195,11 +199,14 @@ a.btn, button.btn {
 }
 
 a.btn-arrow {
+    font-family: "century-gothic", sans-serif !important;
+    font-weight: 700 !important;
     text-transform: uppercase;
     text-decoration: none;
     color: $color-black;
     position: relative;
     font-style: unset;
+    transition: 0.5s ease;
     &::after {
         content: '';
         background: url(/wp-content/themes/henp/assets/images/btn-arrow.svg);
@@ -208,6 +215,12 @@ a.btn-arrow {
         position: absolute;
         right: -30px;
         top: 3px;
+        transition: 0.5s ease;
+    }
+    &:hover {
+        &::after {
+            right: -40px;
+        }
     }
 }
 

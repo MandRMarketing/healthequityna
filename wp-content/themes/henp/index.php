@@ -45,11 +45,20 @@ get_header();
 					<select name="archive" id="archive">
 						<option selected value="all">Archives</option>
 						<?php
-						$archives = get_categories(); // ???????????????????????????????????
-						foreach ($archives as $archive) :
+						$archives = array();
+						$args = array(
+							'post_type'      => 'post',
+							'posts_per_page' => -1,
+						);
+						$posts = get_posts($args);
+						foreach ($posts as $post) :
+							$post_month = get_the_date('F Y', $post->ID);
+							if (!in_array($post_month, $archives)) {
+								$archives[] = $post_month;
 						?>
-							<option value="<?= $category->slug ?>"><?= $category->name ?></option>
+								<option value="<?= $post_month ?>"><?= $post_month ?></option>
 						<?php
+							}
 						endforeach;
 						?>
 					</select>
@@ -64,7 +73,7 @@ get_header();
 			);
 			$featured_query = new WP_Query($featured_args);
 			// var_dump($featured_query);
-			if ($featured_query->have_posts()) :
+			if ($featured_query->have_posts() && !is_paged()) :
 				while ($featured_query->have_posts()) :
 					$featured_query->the_post();
 					$title = get_the_title();
@@ -89,7 +98,7 @@ get_header();
 							</div>
 						</div>
 						<div class="featured-blog__content">
-							<h3><?= $title ?></h3>
+							<h3><a href="<?= $link; ?>"><?= $title ?></a></h3>
 							<p><?= $date ?></p>
 							<div class="featured-blog__content__excerpt">
 								<p><?= $content ?></p>
@@ -149,11 +158,11 @@ get_header();
 
 	function handleFilterSubmit(event, filterType) {
 		event.preventDefault();
-
+		console.log(filterType)
 		if (filterType === "category") {
 			// Get the selected values of the filters
 			var filterCategory = document.querySelector('#category').value;
-
+			console.log(filterCategory)
 			$.ajax({
 					url: '/wp-admin/admin-ajax.php',
 					type: 'GET',
@@ -172,13 +181,13 @@ get_header();
 		} else if (filterType === "tag") {
 			// Get the selected values of the filters
 			var filterTag = document.querySelector('#tag').value;
-
+			console.log(filterTag)
 			$.ajax({
 					url: '/wp-admin/admin-ajax.php',
 					type: 'GET',
 					data: {
 						'action': 'filter_articles',
-						'filterCategory': `${filterTag}`
+						'filterTag': `${filterTag}`
 					},
 					dataType: 'html'
 				})
@@ -191,13 +200,13 @@ get_header();
 		} else if (filterType === "archive") {
 			// Get the selected values of the filters
 			var filterArchive = document.querySelector('#archive').value;
-
+			console.log(filterArchive)
 			$.ajax({
 					url: '/wp-admin/admin-ajax.php',
 					type: 'GET',
 					data: {
 						'action': 'filter_articles',
-						'filterCategory': `${filterArchive}`
+						'filterArchive': `${filterArchive}`
 					},
 					dataType: 'html'
 				})
@@ -215,6 +224,19 @@ get_header();
 			var parentForm = $(this).closest("form");
 			if (parentForm && parentForm.length > 0)
 				parentForm.submit();
+			$('.featured-blog').hide(); // Hide the .featured-blog div
+		});
+		$('#tag').change(function() {
+			var parentForm = $(this).closest("form");
+			if (parentForm && parentForm.length > 0)
+				parentForm.submit();
+			$('.featured-blog').hide(); // Hide the .featured-blog div
+		});
+		$('#archive').change(function() {
+			var parentForm = $(this).closest("form");
+			if (parentForm && parentForm.length > 0)
+				parentForm.submit();
+			$('.featured-blog').hide(); // Hide the .featured-blog div
 		});
 	});
 </script>

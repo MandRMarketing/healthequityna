@@ -55,10 +55,10 @@ $set_venue_apart = apply_filters('tribe_events_single_event_the_meta_group_venue
     ?>
     <?php
     $deadline = get_field('date_and_time');
-    $deadline_parts = explode(' ', $deadline);
-    $date_string = DateTime::createFromFormat('d/m/Y', $deadline_parts[0])->format('F j, Y');
-    $time_string = DateTime::createFromFormat('h:i A', $deadline_parts[1] . ' ' . $deadline_parts[2])->format('g:ia');
     if ($deadline) :
+        $deadline_parts = explode(' ', $deadline);
+        $date_string = DateTime::createFromFormat('d/m/Y', $deadline_parts[0])->format('F j, Y');
+        $time_string = DateTime::createFromFormat('h:i A', $deadline_parts[1] . ' ' . $deadline_parts[2])->format('g:ia');
     ?>
         <div class="tribe-events-meta-group">
             <h2 class="tribe-events-single-section-title">Deadlines</h2>

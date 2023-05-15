@@ -44,7 +44,7 @@ if ($padding_top && $padding_bottom) {
             ?>
                 <li class="news-feed__list-item slick-slide">
                     <img class="news-feed__list-item__image" src="<?= $image_url ?>" alt="<?= $title ?> article image">
-                    <h4><?= $title ?></h4>
+                    <h3><?= $title ?></h3>
                     <p><?= $formatted_date ?></p>
                     <a class="btn-arrow" href="<?= $article_link ?>">Read Article</a>
                 </li>

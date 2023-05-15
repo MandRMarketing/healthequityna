@@ -33,8 +33,8 @@ get_header();
 								<a href="https://twitter.com/intent/tweet?text=<?= get_the_permalink() ?>" target="_blank" rel="norefferer"> <i class="ikes-twitter" aria-hidden="true"></i>
 								</a>
 							</div>
-							<time datetime="<?php the_time('Y-m-d\TH:i'); ?>"><?php the_time('F j, Y'); ?></time>
-							<h4>Author: <?= get_the_author() ?> </h4>
+							<time class="post-date" datetime="<?php the_time('Y-m-d\TH:i'); ?>"><?php the_time('F j, Y'); ?></time>
+							<h4 class="post-authorr">Author: <?= get_the_author() ?> </h4>
 							<!-- <?= blog_tags($id); ?> -->
 						</div>
 						<div class="post-content">
@@ -106,7 +106,7 @@ get_header();
 							<?php
 							$args = array(
 								'post_type'         => 'post',
-								'posts_per_page'     => 4,
+								'posts_per_page'     => 3,
 								'is_paged' => false,
 								'paged' => (get_query_var('paged')) ? get_query_var('paged') : 1,
 							);

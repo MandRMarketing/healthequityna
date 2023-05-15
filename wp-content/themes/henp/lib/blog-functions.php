@@ -353,23 +353,66 @@ add_action('wp_ajax_nopriv_filter_articles', 'filter_articles');
 function filter_articles()
 {
     $filterCategory = $_GET['filterCategory'];
+    $filterTag = $_GET['filterTag'];
+    $filterArchive = $_GET['filterArchive'];
+    if ($filterCategory) {
+        if ($filterCategory == "all") {
+            $args = array(
+                'post_type'         => 'post',
+                'posts_per_page'     => 4,
+                'is_paged' => false,
+                'paged' => (get_query_var('paged')) ? get_query_var('paged') : 1,
+            );
+        } else {
+            $args = array(
+                'post_type'         => 'post',
+                'posts_per_page'     => 4,
+                'is_paged' => false,
+                'paged' => (get_query_var('paged')) ? get_query_var('paged') : 1,
+                'category_name' => $filterCategory,
 
-    if ($filterCategory == "all") {
-        $args = array(
-            'post_type'         => 'post',
-            'posts_per_page'     => 4,
-            'is_paged' => false,
-            'paged' => (get_query_var('paged')) ? get_query_var('paged') : 1,
-        );
-    } else {
-        $args = array(
-            'post_type'         => 'post',
-            'posts_per_page'     => 4,
-            'is_paged' => false,
-            'paged' => (get_query_var('paged')) ? get_query_var('paged') : 1,
-            'category_name' => $filterCategory,
+            );
+        }
+    } elseif ($filterTag) {
+        if ($filterTag == "all") {
+            $args = array(
+                'post_type'         => 'post',
+                'posts_per_page'     => 4,
+                'is_paged' => false,
+                'paged' => (get_query_var('paged')) ? get_query_var('paged') : 1,
+            );
+        } else {
+            $args = array(
+                'post_type'         => 'post',
+                'posts_per_page'     => 4,
+                'is_paged' => false,
+                'paged' => (get_query_var('paged')) ? get_query_var('paged') : 1,
+                'tag' => $filterTag,
 
-        );
+            );
+        }
+    } elseif ($filterArchive) {
+        if ($filterArchive == "all") {
+            $args = array(
+                'post_type'      => 'post',
+                'posts_per_page' => 4,
+                'is_paged'       => false,
+                'paged'          => (get_query_var('paged')) ? get_query_var('paged') : 1,
+            );
+        } else {
+            $month_year = explode(' ', $filterArchive);
+            $month = $month_year[0]; // Extract the month from the provided value
+            $year = $month_year[1]; // Extract the year from the provided value
+
+            $args = array(
+                'post_type'      => 'post',
+                'posts_per_page' => 4,
+                'is_paged'       => false,
+                'paged'          => (get_query_var('paged')) ? get_query_var('paged') : 1,
+                'monthnum'       => date('m', strtotime($month)),
+                'year'           => $year,
+            );
+        }
     }
 
     ?>

@@ -75,6 +75,13 @@
         row-gap: 50px;
     }
 
+    &__group {
+        margin-top: 50px;
+        &__image {
+            border-radius: 60px;
+        }
+    }
+
     &__member {
         flex-basis: 50%;
         display: flex;
@@ -112,6 +119,7 @@
                 font-weight: 700;
                 font-style: italic;
                 font-family: 'Open Sans', sans-serif !important;
+                margin-bottom: 0px;
             }
 
             h5 {

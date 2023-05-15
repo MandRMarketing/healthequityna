@@ -204,8 +204,40 @@
     text-decoration-thickness: unset; /* Set the thickness of the underline */
     text-decoration-color: unset; /* Set the color of the underline */
     font-size: 25px !important;
+    font-style: italic !important;
+    color: #636363 !important;
 }
 
 .tribe-events-single-section.tribe-events-event-meta {
     width: 100% !important;
+}
+
+@media (min-width: 1024px) {
+    .tribe-events-pg-template::before {
+        content: '';
+        background: url(/wp-content/themes/henp/assets/images/henp-background-logo.png);
+        width: 632px;
+        height: 638px;
+        position: absolute;
+        top: 175px;
+        left: -316px;
+    }
+
+    .tribe-events-view::before {
+        content: '';
+        background: url(/wp-content/themes/henp/assets/images/henp-background-logo.png);
+        width: 632px;
+        height: 638px;
+        position: absolute;
+        top: 145px;
+        left: -316px;
+    }
+}
+
+.tribe-events-schedule {
+    margin-bottom: 0 !important;
+}
+
+.tribe-events-event-meta {
+    border-top: 2px solid #F76800;
 }

@@ -26,7 +26,7 @@ if ($padding_top && $padding_bottom) {
     <div class="standard-callout__container container">
         <div class="standard-callout__wrap">
             <?= get_sub_field('content'); ?>
-            <a class="btn" href="<?= $button_link ?>"><?= $button_text ?></a>
+            <a class="btn" href="<?= $button_link ?>" target="_blank" rel="noreffer"><?= $button_text ?></a>
         </div>
     </div>
 </section>

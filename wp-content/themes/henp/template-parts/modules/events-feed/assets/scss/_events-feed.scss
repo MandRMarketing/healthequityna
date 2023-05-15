@@ -56,14 +56,23 @@
                 .event-date {
                     border-right: 2px solid $color-darkorange;
                     padding-right: 35px;
+                    text-transform: uppercase;
                     h2 {
                         margin-bottom: 0;
+                    }
+
+                    h4 {
+                        font-style: normal !important;
                     }
                 }
 
                 .event-desc {
                     padding-left: 35px;
                     width: 100%;
+
+                    h3 {
+                        color: $color-grey;
+                    }
                 }
             }
         }

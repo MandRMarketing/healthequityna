@@ -27,6 +27,12 @@
         }
     }
 }
+.single-post {
+    #main {
+        overflow: hidden;
+    }
+}
+
 
 section {
     .container:first-of-type {
@@ -52,6 +58,13 @@ section {
         }
     }
     &#contact-us {
+        &::before {
+            height: 83px;
+            top: -57px;
+        }
+        .container {
+            max-width: 800px;
+        }
         .gform_required_legend {
             display: none;
         }
@@ -63,6 +76,9 @@ section {
                 background-color: $color-offwhite;
                 border-radius: 15px;
             }
+        }
+        .gfield-choice-input {
+            margin-bottom: 0;
         }
         button {
             display: inline-block;
@@ -76,6 +92,18 @@ section {
             &:hover  {
                 color: $color-white;
             }
+        }
+    }
+
+    &#newsletter {
+        h4 {
+            font-style: normal !important;
+        }
+
+        h3 {
+            font-style: italic !important;
+            color: $color-darkgrey;
+            font-weight: 400 !important;
         }
     }
 
@@ -120,9 +148,17 @@ section {
         .fade-text.expanded:after {
             display: none;
         }
+
+        button {
+            margin-top: 15px;
+        }
     }
 
     &#our-partners{
+        &::before {
+            height: 30px;
+            top: 0px;
+        }
         color: $color-white;
         h2 {
             text-decoration: underline;
@@ -227,6 +263,16 @@ section {
                 position: absolute;
                 top: 0;
                 left: -316px;
+            }
+        }
+        &.bg-logo-right {
+            &::after {
+                filter: opacity(0.3);            
+            }
+        }
+        &.bg-logo-left {
+            &::after {
+                filter: opacity(0.3);            
             }
         }
         &.bg-grey-logo-right {

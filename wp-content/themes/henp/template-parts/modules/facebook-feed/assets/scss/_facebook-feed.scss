@@ -1,4 +1,9 @@
 .facebook-feed {
+    &::before {
+        top: 54px;
+        height: 40px;
+        z-index: 2;
+    }
     background:linear-gradient(90deg,white 33%, $color-darkgrey 33%);
     background:-webkit-linear-gradient(90deg,white 33%, $color-darkgrey 33%);
     @media (max-width: $second-break-max) {

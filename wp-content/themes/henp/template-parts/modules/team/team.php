@@ -6,6 +6,7 @@ $section_background_color = !empty($section_background_color) ? "style=\"backgro
 $content = get_sub_field('content');
 $leading_team_members = get_sub_field('leading_team_members');
 $team_members = get_sub_field('team_members');
+$group_image = get_sub_field('team_group_photo');
 
 // Can't just print an empty id and have id="", so build printout here instead
 $id = !empty($section_id) ? "id=\"{$section_id}\"" : '';
@@ -45,7 +46,6 @@ if ($padding_top && $padding_bottom) {
                     <div class="team__member__content">
                         <h4><?= $name ?></h4>
                         <h5><?= $credentials ?></h5>
-                        <br />
                         <?= $job_title ?>
                         <p>
                             <?php if ($email) : ?>
@@ -79,7 +79,6 @@ if ($padding_top && $padding_bottom) {
                     <div class="team__member__content">
                         <h4><?= $name ?></h4>
                         <h5><?= $credentials ?></h5>
-                        <br />
                         <?= $job_title ?>
                         <p>
                             <?php if ($email) : ?>
@@ -95,5 +94,12 @@ if ($padding_top && $padding_bottom) {
             wp_reset_postdata();
             ?>
         </div>
+        <?php if ($group_image) : ?>
+            <div class="team__group">
+                <picture class="team__group__picture">
+                    <img class="team__group__image" src="<?= $group_image['url']; ?>" alt="<?= $group_image['alt']; ?>">
+                </picture>
+            </div>
+        <?php endif; ?>
     </div>
 </section>
