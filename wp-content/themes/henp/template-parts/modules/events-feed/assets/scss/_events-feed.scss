@@ -19,6 +19,10 @@
         }
         &__content {
             width: 40%;
+            h3 {
+                color: $color-grey;
+                font-weight: 400!important;
+            }
         }
 
         &__events {
@@ -31,7 +35,7 @@
             &__event {
                 width: 100%;
                 background-color: $color-peach;
-                padding: 50px;
+                padding: 30px;
                 border-radius: 30px;
                 display: flex;
                 align-items: center;

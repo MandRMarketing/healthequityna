@@ -22,6 +22,7 @@
                 text {
                     font-family: 'Open Sans', sans-serif !important;
                     font-weight: 700;
+                    pointer-events: none;
                 }
                 path:hover {
                     fill: $color-peach;

@@ -16,6 +16,9 @@ $color-text: $color-black;
         width: 100%;
         padding: 10px 0;
         border-top: solid 2px $color-darkorange;
+        padding-bottom: 0;
+        margin-bottom: 10px;
+        padding-top: 10px;
 
         &:last-of-type {
             border-bottom: solid 2px $color-darkorange;
@@ -78,8 +81,8 @@ $color-text: $color-black;
             overflow: hidden;
             padding: 20px;
             padding-bottom: 0px;
-            p:last-of-type {
-                margin-bottom: 0;
+            ul {
+                margin-bottom: 10px;
             }
         }
 
