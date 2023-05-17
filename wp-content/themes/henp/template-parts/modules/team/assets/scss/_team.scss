@@ -19,17 +19,20 @@
         }
     }
 
-    @media (max-width: $second-break-max) {
+    @media (max-width: $pre-first-break) {
         border-radius: 0;
         &__member {
             flex-basis: 100% !important;
         }
     }
 
-    @media (max-width: $mobile-break-max) {
+    @media (max-width: $pre-first-break) {
         &__member {
             flex-direction: column;
-            align-items: flex-start !important;
+            align-items: center !important;
+            &__content {
+                text-align: center;
+            }
         }
 
         &__leaders {
@@ -92,7 +95,7 @@
             z-index: -1;
         }
         &__image {
-            border-radius: 60px;
+            border-radius: 30px;
         }
     }
 
