@@ -17,7 +17,9 @@
 
         .map__container {
             width: 100%;
-
+            @media (max-width: $mobile-break-max) {
+                pointer-events: none;
+            }
             svg {
                 text {
                     font-family: 'Open Sans', sans-serif !important;

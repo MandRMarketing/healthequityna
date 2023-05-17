@@ -23,7 +23,7 @@ Site Footer
         border-left: 2px solid $color-darkorange;
         position: absolute;
         display: block;
-        left: calc(50% - 8px);
+        left: calc(50%);
         top: 0;
         // top: -60px;
         transform: translateX(-50%);
@@ -64,12 +64,14 @@ Site Footer
             }
         }
         img {
+            width: 33%;
             padding: 0 50px;
             @media (max-width: $second-break-max) {
                 order: 1;
             }
         }
         .contact-address {
+            width: 33%;
             border-right: 2px solid $color-darkorange;
             padding: 25px 50px;
             @media (max-width: $second-break-max) {
@@ -80,6 +82,7 @@ Site Footer
         }
 
         .contact-email {
+            width: 33%;
             border-left: 2px solid $color-darkorange;
             padding: 25px 50px;
             @media (max-width: $second-break-max) {

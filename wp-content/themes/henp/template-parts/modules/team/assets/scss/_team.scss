@@ -77,6 +77,20 @@
 
     &__group {
         margin-top: 50px;
+        position: relative;
+        &::before {
+            content: '';
+            display: block;
+            height: 95%;
+            width: 100%;
+            border: 2px solid $color-darkorange;
+            position: absolute;
+            z-index: 1;
+            border-radius: 30px;
+            left: -5px;
+            bottom: -5px;
+            z-index: -1;
+        }
         &__image {
             border-radius: 60px;
         }
