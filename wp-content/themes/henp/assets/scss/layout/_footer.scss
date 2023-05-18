@@ -67,6 +67,7 @@ Site Footer
             width: 33%;
             padding: 0 50px;
             @media (max-width: $second-break-max) {
+                width: unset !important;
                 order: 1;
             }
         }
@@ -75,6 +76,7 @@ Site Footer
             border-right: 2px solid $color-darkorange;
             padding: 25px 50px;
             @media (max-width: $second-break-max) {
+                width: unset !important;
                 order: 2;
                 padding-bottom: 25px;
                 border-bottom: 2px solid $color-darkorange;
@@ -86,6 +88,7 @@ Site Footer
             border-left: 2px solid $color-darkorange;
             padding: 25px 50px;
             @media (max-width: $second-break-max) {
+                width: unset !important;
                 order: 3;
             }
         }
