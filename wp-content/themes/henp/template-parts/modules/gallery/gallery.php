@@ -73,6 +73,7 @@ $section_classes .= $display_type === 'List' ? ' gallery--list' : ' gallery--car
                         slide: '#gallery-carousel-<?= $rand_id; ?> .gallery__list-item',
                         slidesToShow: 3,
                         centerMode: true,
+                        variableWidth: true,
                         centerPadding: '0',
                         speed: 500,
                         autoplaySpeed: 4000,
