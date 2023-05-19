@@ -50,6 +50,10 @@ section {
         }
     }
 
+    &.hidden {
+        display: none !important;
+    }
+
     &.no-logo {
         .container:first-of-type {
             &::before {
