@@ -34,7 +34,7 @@ get_header();
 								</a>
 							</div>
 							<time class="post-date" datetime="<?php the_time('Y-m-d\TH:i'); ?>"><?php the_time('F j, Y'); ?></time>
-							<h4 class="post-authorr">Author: <?= get_the_author() ?> </h4>
+							<!-- <h4 class="post-authorr">Author: <?= get_the_author() ?> </h4> -->
 							<!-- <?= blog_tags($id); ?> -->
 						</div>
 						<div class="post-content">
