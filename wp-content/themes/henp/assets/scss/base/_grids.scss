@@ -292,6 +292,12 @@ section {
     }
 }
 
+.cff-item {
+    >* {
+        padding: 0 15px;
+    }
+}
+
 .grid {
     position: relative;
 
