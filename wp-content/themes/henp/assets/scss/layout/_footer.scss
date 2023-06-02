@@ -28,14 +28,13 @@ Site Footer
         // top: -60px;
         transform: translateX(-50%);
         width: 1px;
-        height: 200px;
+        height: 100px;
 
         @media (max-width: $second-break-max) {
             left: 50% !important;
             top: -25px;
             height: 51px;
         }
-
     }
     a {
         color: white;

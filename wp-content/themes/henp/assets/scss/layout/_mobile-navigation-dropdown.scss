@@ -13,7 +13,7 @@ $menu-icon-color: $color-lightorange;
     width: 100%;
     height: auto;
     padding: $spacing-tiny $spacing-xs;
-    box-shadow: 0rem 0.15rem 0.5rem 0 rgba(0,0,0,.29);
+    box-shadow: 0rem 0.15rem 0.5rem 0 rgba(0, 0, 0, 0.29);
 
     &::after {
         content: '';
@@ -27,7 +27,7 @@ $menu-icon-color: $color-lightorange;
 
     .header--init &,
     .nav-active & {
-        background: $color-background; 
+        background: $color-background;
     }
 
     /*.scrolling-down:not(.overlay-active):not(.nav-active) & */
@@ -45,13 +45,15 @@ $menu-icon-color: $color-lightorange;
 
     .social-links {
         border-top: 1px solid $color-offwhite;
-        margin-top: 24px;
+        margin-bottom: 24px;
+        display: block;
         text-align: center;
 
         a {
             background-color: #fff;
             margin-top: $spacing-xs;
             color: $color-darkorange;
+            text-decoration: none;
 
             &:hover,
             &:focus {
@@ -113,7 +115,7 @@ $menu-icon-color: $color-lightorange;
         &__icon {
             pointer-events: none; // Remove this so JavaScript click event always grabs button
 
-            &{
+            & {
                 background-color: $color-darkorange;
                 display: inline-block;
                 position: relative;
@@ -438,7 +440,7 @@ $menu-icon-color: $color-lightorange;
 }
 
 // body.nav-active #header .mobile-header__button__icon {
-//     background: transparent; 
+//     background: transparent;
 
 //     &:before {
 //         content: 'X';

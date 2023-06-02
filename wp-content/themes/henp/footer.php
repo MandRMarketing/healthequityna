@@ -7,6 +7,7 @@
 	</div>
 	<div id="footer-copyright" class="footer__copyright">
 		<div class="footer__copyright__container container">
+			<?php get_template_part('template-parts/social-links'); ?>
 			<?= do_shortcode(get_option('options_contact_info')); ?>
 		</div>
 	</div>

@@ -5,6 +5,8 @@ $section_background_color = get_sub_field('section_background_color');
 $section_background_color = !empty($section_background_color) ? "style=\"background-color: {$section_background_color};\"" : '';
 $title = get_sub_field('title');
 $content = get_sub_field('content');
+$monthly_themed_calendar_content = get_sub_field('monthly_themed_calendar_content');
+$monthly_themed_calendar_files = get_sub_field('monthly_themed_calendar_files');
 
 // Can't just print an empty id and have id="", so build printout here instead
 $id = !empty($section_id) ? "id=\"{$section_id}\"" : '';
@@ -76,5 +78,13 @@ if ($padding_top && $padding_bottom) {
             wp_reset_postdata();
             ?>
         </div>
+    </div>
+    <div class="events-feed__themed-calendar container">
+        <?= $monthly_themed_calendar_content ?>
+        <?php foreach ($monthly_themed_calendar_files as $file) : ?>
+            <div class="events-feed__container__themed-calendar__file">
+                <a class="btn" href="<?= $file['pdf'] ?>" target="_blank" rel="norefferer"><?= $file['month'] ?></a>
+            </div>
+        <?php endforeach; ?>
     </div>
 </section>
