@@ -144,7 +144,7 @@ $cost  = tribe_get_formatted_cost($event_id);
             <div class="card Vertical">
                 <h4>Register Today!</h4>
                 <div class="card__content">
-                    <a href="tel:###-###-####">###-###-####</a>
+                    <a href="tel:706-223-5160">706-223-5160</a>
                 </div>
             </div>
         </div>
