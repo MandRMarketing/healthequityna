@@ -2,9 +2,10 @@
 
 add_action('after_setup_theme', 'mandr_setup_theme');
 
-function mandr_setup_theme() {
+function mandr_setup_theme()
+{
 
-	define("THEME_VERSION", '0.0.10');
+	define("THEME_VERSION", '1.0.10'); //go live
 	//define("MR_CACHE_TIMEOUT", 15); //15s cache staging, unused
 	define("MR_GOOGLE_MAPS_API_KEY", ''); // Empty google maps key for development usage
 
@@ -52,7 +53,8 @@ function mandr_setup_theme() {
 	 * Add custom image size to Wordpress admin area
 	 */
 	add_filter('image_size_names_choose', 'my_custom_image_sizes');
-	function my_custom_image_sizes($sizes) {
+	function my_custom_image_sizes($sizes)
+	{
 		return array_merge($sizes, array(
 			'medium-plus' => 'Medium+',
 		));
@@ -62,7 +64,8 @@ function mandr_setup_theme() {
 	 * Redirect Testimonial CPT single view to homepage
 	 */
 	//add_action( 'template_redirect', 'testimonial_redirect_post' );
-	function testimonial_redirect_post() {
+	function testimonial_redirect_post()
+	{
 		$queried_post_type = get_query_var('post_type');
 		if (is_single() && 'mandr_testimonial' ==  $queried_post_type) {
 			wp_redirect(home_url(), 301);
